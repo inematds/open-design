@@ -1,9 +1,9 @@
 # Open Design
 
-> **The open-source alternative to [Claude Design][cd].** Local-first, web-deployable, BYOK at every layer — **11 coding-agent CLIs** auto-detected on your `PATH` (Claude Code, Codex, Cursor Agent, Gemini CLI, OpenCode, Qwen, GitHub Copilot CLI, Hermes, Kimi, Pi, Kiro) become the design engine, driven by **31 composable Skills** and **72 brand-grade Design Systems**. No CLI? An OpenAI-compatible BYOK proxy is the same loop minus the spawn.
+> **A alternativa open-source ao [Claude Design][cd].** Local-first, implantável na web, BYOK em todas as camadas — **11 CLIs de agentes de codificação** detectados automaticamente no seu `PATH` (Claude Code, Codex, Cursor Agent, Gemini CLI, OpenCode, Qwen, GitHub Copilot CLI, Hermes, Kimi, Pi, Kiro) tornam-se o motor de design, conduzidos por **31 Skills componíveis** e **72 Design Systems de qualidade de marca**. Sem CLI? Um proxy BYOK compatível com OpenAI executa o mesmo loop, dispensando o spawn.
 
 <p align="center">
-  <img src="docs/assets/banner.png" alt="Open Design — editorial cover: design with the agent on your laptop" width="100%" />
+  <img src="assets/img/opendesign.png" alt="Open Design — capa editorial: design com o agente no seu laptop" width="100%" />
 </p>
 
 <p align="center">
@@ -19,50 +19,50 @@
 <p align="center">
   <a href="https://github.com/nexu-io/open-design/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/nexu-io/open-design?style=flat-square&color=blueviolet&label=release&include_prereleases" /></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square" /></a>
-  <a href="#supported-coding-agents"><img alt="Agents" src="https://img.shields.io/badge/agents-10%20CLIs%20%2B%20BYOK%20proxy-black?style=flat-square" /></a>
+  <a href="#agentes-de-codificacao-suportados"><img alt="Agents" src="https://img.shields.io/badge/agents-10%20CLIs%20%2B%20BYOK%20proxy-black?style=flat-square" /></a>
   <a href="#design-systems"><img alt="Design systems" src="https://img.shields.io/badge/design%20systems-72-orange?style=flat-square" /></a>
   <a href="#skills"><img alt="Skills" src="https://img.shields.io/badge/skills-31-teal?style=flat-square" /></a>
   <a href="QUICKSTART.md"><img alt="Quickstart" src="https://img.shields.io/badge/quickstart-3%20commands-green?style=flat-square" /></a>
 </p>
 
-<p align="center"><b>English</b> · <a href="README.de.md">Deutsch</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja-JP.md">日本語</a></p>
+<p align="center"><a href="README.en.md">English</a> · <a href="README.de.md">Deutsch</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja-JP.md">日本語</a> · <b>Português (BR)</b></p>
 
 ---
 
-## Why this exists
+## Por que isto existe
 
-Anthropic's [Claude Design][cd] (released 2026-04-17, Opus 4.7) showed what happens when an LLM stops writing prose and starts shipping design artifacts. It went viral — and stayed closed-source, paid-only, cloud-only, locked to Anthropic's model and Anthropic's skills. There is no checkout, no self-host, no Vercel deploy, no swap-in-your-own-agent.
+O [Claude Design][cd] da Anthropic (lançado em 2026-04-17, Opus 4.7) mostrou o que acontece quando um LLM para de escrever prosa e começa a entregar artefatos de design. Viralizou — e permaneceu de código fechado, pago, apenas na nuvem, preso ao modelo da Anthropic e às skills da Anthropic. Não há checkout, não há self-host, não há deploy na Vercel, não há troca por seu próprio agente.
 
-**Open Design (OD) is the open-source alternative.** Same loop, same artifact-first mental model, none of the lock-in. We don't ship an agent — the strongest coding agents already live on your laptop. We wire them into a skill-driven design workflow that runs locally with `pnpm tools-dev`, can deploy the web layer to Vercel, and stays BYOK at every layer.
+**Open Design (OD) é a alternativa open-source.** Mesmo loop, mesmo modelo mental artifact-first, nada do lock-in. Não enviamos um agente — os agentes de codificação mais fortes já vivem no seu laptop. Nós os conectamos a um fluxo de design orientado por skills que roda localmente com `pnpm tools-dev`, pode implantar a camada web na Vercel, e permanece BYOK em todas as camadas.
 
-Type `make me a magazine-style pitch deck for our seed round`. The interactive question form pops up before the model improvises a single pixel. The agent picks one of five curated visual directions. A live `TodoWrite` plan streams into the UI. The daemon builds a real on-disk project folder with a seed template, layout library, and self-check checklist. The agent reads them — pre-flight enforced — runs a five-dimensional critique against its own output, and emits a single `<artifact>` that renders in a sandboxed iframe seconds later.
+Digite `crie um pitch deck estilo revista para nossa rodada seed`. O formulário de perguntas interativo aparece antes que o modelo improvise um único pixel. O agente escolhe uma de cinco direções visuais curadas. Um plano `TodoWrite` ao vivo é transmitido para a UI. O daemon constrói uma pasta de projeto real em disco com um template seed, biblioteca de layouts e checklist de auto-verificação. O agente os lê — pre-flight aplicado — executa uma crítica de cinco dimensões contra a sua própria saída, e emite um único `<artifact>` que renderiza em um iframe sandboxed segundos depois.
 
-That's not "AI tries to design something". That's an AI that has been trained, by the prompt stack, to behave like a senior designer with a working filesystem, a deterministic palette library, and a checklist culture — exactly the bar Claude Design set, but open and yours.
+Isso não é "IA tentando desenhar algo". É uma IA que foi treinada, pela stack de prompts, a se comportar como uma designer sênior com um sistema de arquivos funcional, uma biblioteca determinística de paletas e uma cultura de checklist — exatamente o nível que o Claude Design estabeleceu, mas aberto e seu.
 
-OD stands on four open-source shoulders:
+OD se apoia em quatro ombros open-source:
 
-- [**`alchaincyf/huashu-design`**](https://github.com/alchaincyf/huashu-design) — the design-philosophy compass. Junior-Designer workflow, the 5-step brand-asset protocol, the anti-AI-slop checklist, the 5-dimensional self-critique, and the "5 schools × 20 design philosophies" idea behind our direction picker — all distilled into [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts).
-- [**`op7418/guizang-ppt-skill`**](https://github.com/op7418/guizang-ppt-skill) — the deck mode. Bundled verbatim under [`skills/guizang-ppt/`](skills/guizang-ppt/) with original LICENSE preserved; magazine-style layouts, WebGL hero, P0/P1/P2 checklists.
-- [**`OpenCoworkAI/open-codesign`**](https://github.com/OpenCoworkAI/open-codesign) — the UX north star and our closest peer. The first open-source Claude-Design alternative. We borrow its streaming-artifact loop, its sandboxed-iframe preview pattern (vendored React 18 + Babel), its live agent panel (todos + tool calls + interruptible generation), and its five-format export list (HTML / PDF / PPTX / ZIP / Markdown). We deliberately diverge on form factor — they are a desktop Electron app bundling [`pi-ai`][piai]; we are a web app + local daemon that delegates to your existing CLI.
-- [**`multica-ai/multica`**](https://github.com/multica-ai/multica) — the daemon-and-runtime architecture. PATH-scan agent detection, the local daemon as the only privileged process, the agent-as-teammate worldview.
+- [**`alchaincyf/huashu-design`**](https://github.com/alchaincyf/huashu-design) — a bússola da filosofia de design. Workflow Junior-Designer, o protocolo de 5 passos para ativos de marca, o checklist anti-AI-slop, a auto-crítica de 5 dimensões, e a ideia "5 escolas × 20 filosofias de design" por trás do nosso seletor de direções — tudo destilado em [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts).
+- [**`op7418/guizang-ppt-skill`**](https://github.com/op7418/guizang-ppt-skill) — o modo deck. Empacotado verbatim em [`skills/guizang-ppt/`](skills/guizang-ppt/) com a LICENSE original preservada; layouts estilo revista, hero WebGL, checklists P0/P1/P2.
+- [**`OpenCoworkAI/open-codesign`**](https://github.com/OpenCoworkAI/open-codesign) — a estrela-guia de UX e nosso par mais próximo. A primeira alternativa open-source ao Claude Design. Pegamos emprestado seu loop de streaming-artifact, seu padrão de preview em iframe sandboxed (React 18 + Babel vendorizado), seu painel de agente ao vivo (todos + chamadas de ferramenta + geração interrompível), e sua lista de exportação em cinco formatos (HTML / PDF / PPTX / ZIP / Markdown). Divergimos deliberadamente no formato — eles são um app desktop Electron empacotando [`pi-ai`][piai]; nós somos um web app + daemon local que delega para sua CLI existente.
+- [**`multica-ai/multica`**](https://github.com/multica-ai/multica) — a arquitetura daemon-and-runtime. Detecção de agentes via PATH-scan, o daemon local como o único processo privilegiado, a visão de mundo agente-como-companheiro-de-equipe.
 
-## At a glance
+## Visão geral
 
-| | What you get |
+| | O que você ganha |
 |---|---|
-| **Coding-agent CLIs (11)** | Claude Code · Codex CLI · Cursor Agent · Gemini CLI · OpenCode · Qwen Code · GitHub Copilot CLI · Hermes (ACP) · Kimi CLI (ACP) · Pi (RPC) · Kiro CLI (ACP) — auto-detected on `PATH`, swap with one click |
-| **BYOK fallback** | OpenAI-compatible proxy at `/api/proxy/stream` — paste `baseUrl` + `apiKey` + `model` and any vendor (Anthropic-via-OpenAI, DeepSeek, Groq, MiMo, OpenRouter, your self-hosted vLLM, or any other OpenAI-compatible provider) becomes the engine. Internal-IP/SSRF blocked at the daemon edge. |
-| **Design systems built-in** | **129** — 2 hand-authored starters + 70 product systems (Linear, Stripe, Vercel, Airbnb, Tesla, Notion, Anthropic, Apple, Cursor, Supabase, Figma, Xiaohongshu, …) from [`awesome-design-md`][acd2], plus 57 design skills from [`awesome-design-skills`][ads] added directly under `design-systems/` |
-| **Skills built-in** | **31** — 27 in `prototype` mode (web-prototype, saas-landing, dashboard, mobile-app, gamified-app, social-carousel, magazine-poster, dating-web, sprite-animation, motion-frames, critique, tweaks, wireframe-sketch, pm-spec, eng-runbook, finance-report, hr-onboarding, invoice, kanban-board, team-okrs, …) + 4 in `deck` mode (`guizang-ppt` · `simple-deck` · `replit-deck` · `weekly-update`). Grouped in the picker by `scenario`: design / marketing / operation / engineering / product / finance / hr / sale / personal. |
-| **Visual directions** | 5 curated schools (Editorial Monocle · Modern Minimal · Warm Soft · Tech Utility · Brutalist Experimental) — each ships a deterministic OKLch palette + font stack ([`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts)) |
-| **Device frames** | iPhone 15 Pro · Pixel · iPad Pro · MacBook · Browser Chrome — pixel-accurate, shared across skills under [`assets/frames/`](assets/frames/) |
-| **Agent runtime** | Local daemon spawns the CLI in your project folder — agent gets real `Read`, `Write`, `Bash`, `WebFetch` against a real on-disk environment, with Windows `ENAMETOOLONG` fallbacks (stdin / prompt-file) on every adapter |
-| **Imports** | Drop a [Claude Design][cd] export ZIP onto the welcome dialog — `POST /api/import/claude-design` parses it into a real project so your agent can keep editing where Anthropic left off |
-| **Persistence** | SQLite at `.od/app.sqlite`: projects · conversations · messages · tabs · saved templates. Reopen tomorrow, todo card and open files are exactly where you left them. |
-| **Lifecycle** | One entry point: `pnpm tools-dev` (start / stop / run / status / logs / inspect / check) — boots daemon + web (+ desktop) under typed sidecar stamps |
-| **Desktop** | Optional Electron shell with sandboxed renderer + sidecar IPC (STATUS / EVAL / SCREENSHOT / CONSOLE / CLICK / SHUTDOWN) — drives `tools-dev inspect desktop screenshot` for E2E |
-| **Deployable to** | Local (`pnpm tools-dev`) · Vercel web layer · packaged Electron (placeholder, in-flight) |
-| **License** | Apache-2.0 |
+| **CLIs de agente de codificação (11)** | Claude Code · Codex CLI · Cursor Agent · Gemini CLI · OpenCode · Qwen Code · GitHub Copilot CLI · Hermes (ACP) · Kimi CLI (ACP) · Pi (RPC) · Kiro CLI (ACP) — detectados automaticamente no `PATH`, troque com um clique |
+| **Fallback BYOK** | Proxy compatível com OpenAI em `/api/proxy/stream` — cole `baseUrl` + `apiKey` + `model` e qualquer fornecedor (Anthropic-via-OpenAI, DeepSeek, Groq, MiMo, OpenRouter, seu vLLM auto-hospedado, ou qualquer outro provedor compatível com OpenAI) torna-se o motor. IPs internos/SSRF bloqueados na borda do daemon. |
+| **Design systems integrados** | **129** — 2 starters escritos à mão + 70 sistemas de produtos (Linear, Stripe, Vercel, Airbnb, Tesla, Notion, Anthropic, Apple, Cursor, Supabase, Figma, Xiaohongshu, …) de [`awesome-design-md`][acd2], mais 57 design skills de [`awesome-design-skills`][ads] adicionadas diretamente em `design-systems/` |
+| **Skills integradas** | **31** — 27 no modo `prototype` (web-prototype, saas-landing, dashboard, mobile-app, gamified-app, social-carousel, magazine-poster, dating-web, sprite-animation, motion-frames, critique, tweaks, wireframe-sketch, pm-spec, eng-runbook, finance-report, hr-onboarding, invoice, kanban-board, team-okrs, …) + 4 no modo `deck` (`guizang-ppt` · `simple-deck` · `replit-deck` · `weekly-update`). Agrupadas no seletor por `scenario`: design / marketing / operation / engineering / product / finance / hr / sale / personal. |
+| **Direções visuais** | 5 escolas curadas (Editorial Monocle · Modern Minimal · Warm Soft · Tech Utility · Brutalist Experimental) — cada uma traz uma paleta OKLch determinística + font stack ([`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts)) |
+| **Frames de dispositivo** | iPhone 15 Pro · Pixel · iPad Pro · MacBook · Browser Chrome — pixel-accurate, compartilhados entre skills em [`assets/frames/`](assets/frames/) |
+| **Runtime do agente** | O daemon local faz spawn da CLI na pasta do seu projeto — o agente recebe `Read`, `Write`, `Bash`, `WebFetch` reais contra um ambiente real em disco, com fallbacks para `ENAMETOOLONG` no Windows (stdin / arquivo de prompt) em todo adapter |
+| **Importações** | Solte um ZIP de exportação do [Claude Design][cd] no diálogo de boas-vindas — `POST /api/import/claude-design` o decompõe em um projeto real para que seu agente continue editando de onde a Anthropic parou |
+| **Persistência** | SQLite em `.od/app.sqlite`: projetos · conversas · mensagens · abas · templates salvos. Reabra amanhã, o card de todo e os arquivos abertos estão exatamente onde você deixou. |
+| **Lifecycle** | Um único ponto de entrada: `pnpm tools-dev` (start / stop / run / status / logs / inspect / check) — inicializa daemon + web (+ desktop) sob stamps de sidecar tipados |
+| **Desktop** | Shell Electron opcional com renderer sandboxed + IPC de sidecar (STATUS / EVAL / SCREENSHOT / CONSOLE / CLICK / SHUTDOWN) — alimenta `tools-dev inspect desktop screenshot` para E2E |
+| **Implantável em** | Local (`pnpm tools-dev`) · camada web na Vercel · Electron empacotado (placeholder, em andamento) |
+| **Licença** | Apache-2.0 |
 
 [acd2]: https://github.com/VoltAgent/awesome-design-md
 [ads]: https://github.com/bergside/awesome-design-skills
@@ -72,199 +72,199 @@ OD stands on four open-source shoulders:
 <table>
 <tr>
 <td width="50%">
-<img src="docs/screenshots/01-entry-view.png" alt="01 · Entry view" /><br/>
-<sub><b>Entry view</b> — pick a skill, pick a design system, type the brief. The same surface for prototypes, decks, mobile apps, dashboards, and editorial pages.</sub>
+<img src="docs/screenshots/01-entry-view.png" alt="01 · Tela de entrada" /><br/>
+<sub><b>Tela de entrada</b> — escolha uma skill, escolha um design system, digite o brief. A mesma superfície para protótipos, decks, apps mobile, dashboards e páginas editoriais.</sub>
 </td>
 <td width="50%">
-<img src="docs/screenshots/02-question-form.png" alt="02 · Turn-1 discovery form" /><br/>
-<sub><b>Turn-1 discovery form</b> — before the model writes a pixel, OD locks the brief: surface, audience, tone, brand context, scale. 30 seconds of radios beats 30 minutes of redirects.</sub>
-</td>
-</tr>
-<tr>
-<td width="50%">
-<img src="docs/screenshots/03-direction-picker.png" alt="03 · Direction picker" /><br/>
-<sub><b>Direction picker</b> — when the user has no brand, the agent emits a second form with 5 curated directions (Monocle / Modern Minimal / Tech Utility / Brutalist / Soft Warm). One radio click → a deterministic palette + font stack, no model freestyle.</sub>
-</td>
-<td width="50%">
-<img src="docs/screenshots/04-todo-progress.png" alt="04 · Live todo progress" /><br/>
-<sub><b>Live todo progress</b> — the agent's plan streams as a live card. <code>in_progress</code> → <code>completed</code> updates land in real time. The user can redirect cheaply, mid-flight.</sub>
+<img src="docs/screenshots/02-question-form.png" alt="02 · Formulário de descoberta do turno 1" /><br/>
+<sub><b>Formulário de descoberta do turno 1</b> — antes que o modelo escreva um pixel, o OD trava o brief: superfície, audiência, tom, contexto de marca, escala. 30 segundos de radios derrotam 30 minutos de redirecionamentos.</sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-<img src="docs/screenshots/05-preview-iframe.png" alt="05 · Sandboxed preview" /><br/>
-<sub><b>Sandboxed preview</b> — every <code>&lt;artifact&gt;</code> renders in a clean srcdoc iframe. Editable in place via the file workspace; downloadable as HTML, PDF, ZIP.</sub>
+<img src="docs/screenshots/03-direction-picker.png" alt="03 · Seletor de direções" /><br/>
+<sub><b>Seletor de direções</b> — quando o usuário não tem marca, o agente emite um segundo formulário com 5 direções curadas (Monocle / Modern Minimal / Tech Utility / Brutalist / Soft Warm). Um clique no radio → uma paleta + font stack determinísticos, sem freestyle do modelo.</sub>
 </td>
 <td width="50%">
-<img src="docs/screenshots/06-design-systems-library.png" alt="06 · 72-system library" /><br/>
-<sub><b>72-system library</b> — every product system shows its 4-color signature. Click for the full <code>DESIGN.md</code>, swatch grid, and live showcase.</sub>
+<img src="docs/screenshots/04-todo-progress.png" alt="04 · Progresso de todos ao vivo" /><br/>
+<sub><b>Progresso de todos ao vivo</b> — o plano do agente é transmitido como um card ao vivo. Atualizações de <code>in_progress</code> → <code>completed</code> chegam em tempo real. O usuário pode redirecionar barato, em pleno voo.</sub>
 </td>
 </tr>
 <tr>
 <td width="50%">
-<img src="docs/screenshots/07-magazine-deck.png" alt="07 · Magazine deck" /><br/>
-<sub><b>Deck mode (guizang-ppt)</b> — the bundled <a href="https://github.com/op7418/guizang-ppt-skill"><code>guizang-ppt-skill</code></a> drops in unchanged. Magazine layouts, WebGL hero backgrounds, single-file HTML output, PDF export.</sub>
+<img src="docs/screenshots/05-preview-iframe.png" alt="05 · Preview sandboxed" /><br/>
+<sub><b>Preview sandboxed</b> — todo <code>&lt;artifact&gt;</code> renderiza em um iframe srcdoc limpo. Editável no local via o workspace de arquivos; baixável como HTML, PDF, ZIP.</sub>
 </td>
 <td width="50%">
-<img src="docs/screenshots/08-mobile-app.png" alt="08 · Mobile prototype" /><br/>
-<sub><b>Mobile prototype</b> — pixel-accurate iPhone 15 Pro chrome (Dynamic Island, status bar SVGs, home indicator). Multi-screen prototypes use the shared <code>/frames/</code> assets so the agent never re-draws a phone.</sub>
+<img src="docs/screenshots/06-design-systems-library.png" alt="06 · Biblioteca de 72 sistemas" /><br/>
+<sub><b>Biblioteca de 72 sistemas</b> — todo sistema de produto mostra sua assinatura de 4 cores. Clique para o <code>DESIGN.md</code> completo, grid de swatches e showcase ao vivo.</sub>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="docs/screenshots/07-magazine-deck.png" alt="07 · Deck estilo revista" /><br/>
+<sub><b>Modo deck (guizang-ppt)</b> — o <a href="https://github.com/op7418/guizang-ppt-skill"><code>guizang-ppt-skill</code></a> empacotado entra inalterado. Layouts de revista, fundos hero WebGL, saída HTML em arquivo único, exportação PDF.</sub>
+</td>
+<td width="50%">
+<img src="docs/screenshots/08-mobile-app.png" alt="08 · Protótipo mobile" /><br/>
+<sub><b>Protótipo mobile</b> — chrome do iPhone 15 Pro pixel-accurate (Dynamic Island, SVGs da status bar, indicador de home). Protótipos multi-tela usam os ativos compartilhados de <code>/frames/</code> para que o agente nunca redesenhe um celular.</sub>
 </td>
 </tr>
 </table>
 
 ## Skills
 
-**31 skills ship in the box.** Each is a folder under [`skills/`](skills/) following the Claude Code [`SKILL.md`][skill] convention with an extended `od:` frontmatter that the daemon parses verbatim — `mode`, `platform`, `scenario`, `preview.type`, `design_system.requires`, `default_for`, `featured`, `fidelity`, `speaker_notes`, `animations`, `example_prompt` ([`apps/daemon/src/skills.ts`](apps/daemon/src/skills.ts)).
+**31 skills vêm na caixa.** Cada uma é uma pasta em [`skills/`](skills/) seguindo a convenção [`SKILL.md`][skill] do Claude Code com um frontmatter `od:` estendido que o daemon parseia verbatim — `mode`, `platform`, `scenario`, `preview.type`, `design_system.requires`, `default_for`, `featured`, `fidelity`, `speaker_notes`, `animations`, `example_prompt` ([`apps/daemon/src/skills.ts`](apps/daemon/src/skills.ts)).
 
-Two top-level **modes** carry the catalog: **`prototype`** (27 skills — anything that renders as a single-page artifact, from a magazine landing to a phone screen to a PM spec doc) and **`deck`** (4 skills — horizontal-swipe presentations with deck-framework chrome). The **`scenario`** field is what the picker groups them by: `design` · `marketing` · `operation` · `engineering` · `product` · `finance` · `hr` · `sale` · `personal`.
+Dois **modos** de topo carregam o catálogo: **`prototype`** (27 skills — qualquer coisa que renderize como um artefato de página única, de uma landing de revista a uma tela de celular ou um documento de spec de PM) e **`deck`** (4 skills — apresentações com swipe horizontal e chrome de framework de deck). O campo **`scenario`** é por onde o seletor as agrupa: `design` · `marketing` · `operation` · `engineering` · `product` · `finance` · `hr` · `sale` · `personal`.
 
-### Showcase examples
+### Exemplos do showcase
 
-The visually distinctive skills you'll most likely run first. Each ships a real `example.html` you can open straight from the repo to see exactly what the agent will produce — no auth, no setup.
+As skills visualmente mais distintivas que você provavelmente vai rodar primeiro. Cada uma traz um `example.html` real que você pode abrir direto do repo para ver exatamente o que o agente vai produzir — sem auth, sem setup.
 
 <table>
 <tr>
 <td width="50%" valign="top">
 <a href="skills/dating-web/"><img src="docs/screenshots/skills/dating-web.png" alt="dating-web" /></a><br/>
-<sub><b><a href="skills/dating-web/"><code>dating-web</code></a></b> · <i>prototype</i><br/>Consumer dating / matchmaking dashboard — left rail nav, ticker bar, KPIs, 30-day mutual-matches chart, editorial typography.</sub>
+<sub><b><a href="skills/dating-web/"><code>dating-web</code></a></b> · <i>prototype</i><br/>Dashboard de namoro / matchmaking — nav lateral à esquerda, ticker bar, KPIs, gráfico de matches mútuos de 30 dias, tipografia editorial.</sub>
 </td>
 <td width="50%" valign="top">
 <a href="skills/digital-eguide/"><img src="docs/screenshots/skills/digital-eguide.png" alt="digital-eguide" /></a><br/>
-<sub><b><a href="skills/digital-eguide/"><code>digital-eguide</code></a></b> · <i>template</i><br/>Two-spread digital e-guide — cover (title, author, TOC teaser) + lesson spread with pull-quote and step list. Creator / lifestyle tone.</sub>
+<sub><b><a href="skills/digital-eguide/"><code>digital-eguide</code></a></b> · <i>template</i><br/>E-guia digital de duas spreads — capa (título, autor, prévia do TOC) + spread de aula com pull-quote e lista de passos. Tom criador / lifestyle.</sub>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 <a href="skills/email-marketing/"><img src="docs/screenshots/skills/email-marketing.png" alt="email-marketing" /></a><br/>
-<sub><b><a href="skills/email-marketing/"><code>email-marketing</code></a></b> · <i>prototype</i><br/>Brand product-launch HTML email — masthead, hero image, headline lockup, CTA, specs grid. Centered single-column, table-fallback safe.</sub>
+<sub><b><a href="skills/email-marketing/"><code>email-marketing</code></a></b> · <i>prototype</i><br/>E-mail HTML de lançamento de produto da marca — masthead, imagem hero, lockup do título, CTA, grid de specs. Coluna única centralizada, com fallback de tabela seguro.</sub>
 </td>
 <td width="50%" valign="top">
 <a href="skills/gamified-app/"><img src="docs/screenshots/skills/gamified-app.png" alt="gamified-app" /></a><br/>
-<sub><b><a href="skills/gamified-app/"><code>gamified-app</code></a></b> · <i>prototype</i><br/>Three-frame gamified mobile-app prototype on a dark showcase stage — cover, today's quests with XP ribbons + level bar, quest detail.</sub>
+<sub><b><a href="skills/gamified-app/"><code>gamified-app</code></a></b> · <i>prototype</i><br/>Protótipo de mobile-app gamificado em três frames sobre um stage escuro de showcase — capa, missões do dia com fitas de XP + barra de nível, detalhe da missão.</sub>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 <a href="skills/mobile-onboarding/"><img src="docs/screenshots/skills/mobile-onboarding.png" alt="mobile-onboarding" /></a><br/>
-<sub><b><a href="skills/mobile-onboarding/"><code>mobile-onboarding</code></a></b> · <i>prototype</i><br/>Three-frame mobile onboarding flow — splash, value-prop, sign-in. Status bar, swipe dots, primary CTA.</sub>
+<sub><b><a href="skills/mobile-onboarding/"><code>mobile-onboarding</code></a></b> · <i>prototype</i><br/>Fluxo de onboarding mobile em três frames — splash, value-prop, sign-in. Status bar, dots de swipe, CTA primário.</sub>
 </td>
 <td width="50%" valign="top">
 <a href="skills/motion-frames/"><img src="docs/screenshots/skills/motion-frames.png" alt="motion-frames" /></a><br/>
-<sub><b><a href="skills/motion-frames/"><code>motion-frames</code></a></b> · <i>prototype</i><br/>Single-frame motion-design hero with looping CSS animations — rotating type ring, animated globe, ticking timer. Hand-off ready for HyperFrames.</sub>
+<sub><b><a href="skills/motion-frames/"><code>motion-frames</code></a></b> · <i>prototype</i><br/>Hero de motion design em frame único com animações CSS em loop — anel de tipo rotacionando, globo animado, timer pulsando. Pronto para hand-off para HyperFrames.</sub>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
 <a href="skills/social-carousel/"><img src="docs/screenshots/skills/social-carousel.png" alt="social-carousel" /></a><br/>
-<sub><b><a href="skills/social-carousel/"><code>social-carousel</code></a></b> · <i>prototype</i><br/>Three-card 1080×1080 social-media carousel — cinematic panels with display headlines that connect across the series, brand mark, loop affordance.</sub>
+<sub><b><a href="skills/social-carousel/"><code>social-carousel</code></a></b> · <i>prototype</i><br/>Carrossel de social media 1080×1080 em três cards — painéis cinematográficos com títulos display que se conectam ao longo da série, logo da marca, indicação de loop.</sub>
 </td>
 <td width="50%" valign="top">
 <a href="skills/sprite-animation/"><img src="docs/screenshots/skills/sprite-animation.png" alt="sprite-animation" /></a><br/>
-<sub><b><a href="skills/sprite-animation/"><code>sprite-animation</code></a></b> · <i>prototype</i><br/>Pixel / 8-bit animated explainer slide — full-bleed cream stage, animated pixel mascot, kinetic Japanese display type, looping CSS keyframes.</sub>
+<sub><b><a href="skills/sprite-animation/"><code>sprite-animation</code></a></b> · <i>prototype</i><br/>Slide explicador animado pixel / 8-bit — stage cream full-bleed, mascote pixel animado, tipo display kinético japonês, keyframes CSS em loop.</sub>
 </td>
 </tr>
 </table>
 
-### Design & marketing surfaces (prototype mode)
+### Superfícies de design & marketing (modo prototype)
 
-| Skill | Platform | Scenario | What it produces |
+| Skill | Plataforma | Cenário | O que produz |
 |---|---|---|---|
-| [`web-prototype`](skills/web-prototype/) | desktop | design | Single-page HTML — landings, marketing, hero pages (default for prototype) |
-| [`saas-landing`](skills/saas-landing/) | desktop | marketing | Hero / features / pricing / CTA marketing layout |
-| [`dashboard`](skills/dashboard/) | desktop | operation | Admin / analytics with sidebar + dense data layout |
-| [`pricing-page`](skills/pricing-page/) | desktop | sale | Standalone pricing + comparison tables |
-| [`docs-page`](skills/docs-page/) | desktop | engineering | 3-column documentation layout |
-| [`blog-post`](skills/blog-post/) | desktop | marketing | Editorial long-form |
-| [`mobile-app`](skills/mobile-app/) | mobile | design | iPhone 15 Pro / Pixel framed app screen(s) |
-| [`mobile-onboarding`](skills/mobile-onboarding/) | mobile | design | Multi-screen mobile onboarding flow (splash · value-prop · sign-in) |
-| [`gamified-app`](skills/gamified-app/) | mobile | personal | Three-frame gamified mobile-app prototype |
-| [`email-marketing`](skills/email-marketing/) | desktop | marketing | Brand product-launch HTML email (table-fallback safe) |
-| [`social-carousel`](skills/social-carousel/) | desktop | marketing | 3-card 1080×1080 social carousel |
-| [`magazine-poster`](skills/magazine-poster/) | desktop | marketing | Single-page magazine-style poster |
-| [`motion-frames`](skills/motion-frames/) | desktop | marketing | Motion-design hero with looping CSS animations |
-| [`sprite-animation`](skills/sprite-animation/) | desktop | marketing | Pixel / 8-bit animated explainer slide |
-| [`dating-web`](skills/dating-web/) | desktop | personal | Consumer dating dashboard mockup |
-| [`digital-eguide`](skills/digital-eguide/) | desktop | marketing | Two-spread digital e-guide (cover + lesson) |
-| [`wireframe-sketch`](skills/wireframe-sketch/) | desktop | design | Hand-drawn ideation sketch — for the "show something visible early" pass |
-| [`critique`](skills/critique/) | desktop | design | Five-dimensional self-critique scoresheet (Philosophy · Hierarchy · Detail · Function · Innovation) |
-| [`tweaks`](skills/tweaks/) | desktop | design | AI-emitted tweaks panel — the model surfaces the parameters worth nudging |
+| [`web-prototype`](skills/web-prototype/) | desktop | design | HTML de página única — landings, marketing, hero pages (default para prototype) |
+| [`saas-landing`](skills/saas-landing/) | desktop | marketing | Layout de marketing com hero / features / pricing / CTA |
+| [`dashboard`](skills/dashboard/) | desktop | operation | Admin / analytics com sidebar + layout de dados denso |
+| [`pricing-page`](skills/pricing-page/) | desktop | sale | Tabelas de pricing + comparação standalone |
+| [`docs-page`](skills/docs-page/) | desktop | engineering | Layout de documentação em 3 colunas |
+| [`blog-post`](skills/blog-post/) | desktop | marketing | Long-form editorial |
+| [`mobile-app`](skills/mobile-app/) | mobile | design | Tela(s) de app emolduradas em iPhone 15 Pro / Pixel |
+| [`mobile-onboarding`](skills/mobile-onboarding/) | mobile | design | Fluxo de onboarding mobile multi-tela (splash · value-prop · sign-in) |
+| [`gamified-app`](skills/gamified-app/) | mobile | personal | Protótipo de mobile-app gamificado em três frames |
+| [`email-marketing`](skills/email-marketing/) | desktop | marketing | E-mail HTML de lançamento de produto (com fallback de tabela seguro) |
+| [`social-carousel`](skills/social-carousel/) | desktop | marketing | Carrossel social de 3 cards 1080×1080 |
+| [`magazine-poster`](skills/magazine-poster/) | desktop | marketing | Poster de página única estilo revista |
+| [`motion-frames`](skills/motion-frames/) | desktop | marketing | Hero de motion design com animações CSS em loop |
+| [`sprite-animation`](skills/sprite-animation/) | desktop | marketing | Slide explicador animado pixel / 8-bit |
+| [`dating-web`](skills/dating-web/) | desktop | personal | Mockup de dashboard de namoro |
+| [`digital-eguide`](skills/digital-eguide/) | desktop | marketing | E-guia digital em duas spreads (capa + aula) |
+| [`wireframe-sketch`](skills/wireframe-sketch/) | desktop | design | Sketch de ideação desenhado à mão — para o passo "mostre algo visível cedo" |
+| [`critique`](skills/critique/) | desktop | design | Folha de auto-crítica de cinco dimensões (Filosofia · Hierarquia · Detalhe · Função · Inovação) |
+| [`tweaks`](skills/tweaks/) | desktop | design | Painel de tweaks emitidos pela IA — o modelo levanta os parâmetros que valem a pena ajustar |
 
-### Deck surfaces (deck mode)
+### Superfícies de deck (modo deck)
 
-| Skill | Default for | What it produces |
+| Skill | Default para | O que produz |
 |---|---|---|
-| [`guizang-ppt`](skills/guizang-ppt/) | **default** for deck | Magazine-style web PPT — bundled verbatim from [op7418/guizang-ppt-skill][guizang], original LICENSE preserved |
-| [`simple-deck`](skills/simple-deck/) | — | Minimal horizontal-swipe deck |
-| [`replit-deck`](skills/replit-deck/) | — | Product-walkthrough deck (Replit-style) |
-| [`weekly-update`](skills/weekly-update/) | — | Team weekly cadence as a swipe deck (progress · blockers · next) |
+| [`guizang-ppt`](skills/guizang-ppt/) | **default** para deck | Web PPT estilo revista — empacotado verbatim de [op7418/guizang-ppt-skill][guizang], LICENSE original preservada |
+| [`simple-deck`](skills/simple-deck/) | — | Deck minimalista de swipe horizontal |
+| [`replit-deck`](skills/replit-deck/) | — | Deck de walkthrough de produto (estilo Replit) |
+| [`weekly-update`](skills/weekly-update/) | — | Cadência semanal de equipe como deck de swipe (progresso · blockers · próximos) |
 
-### Office & operations surfaces (prototype mode, document-flavored scenarios)
+### Superfícies de office & operações (modo prototype, cenários flavor de documento)
 
-| Skill | Scenario | What it produces |
+| Skill | Cenário | O que produz |
 |---|---|---|
-| [`pm-spec`](skills/pm-spec/) | product | PM specification doc with TOC + decision log |
-| [`team-okrs`](skills/team-okrs/) | product | OKR scoresheet |
-| [`meeting-notes`](skills/meeting-notes/) | operation | Meeting decision log |
-| [`kanban-board`](skills/kanban-board/) | operation | Board snapshot |
-| [`eng-runbook`](skills/eng-runbook/) | engineering | Incident runbook |
-| [`finance-report`](skills/finance-report/) | finance | Exec finance summary |
-| [`invoice`](skills/invoice/) | finance | Single-page invoice |
-| [`hr-onboarding`](skills/hr-onboarding/) | hr | Role onboarding plan |
+| [`pm-spec`](skills/pm-spec/) | product | Doc de especificação de PM com TOC + log de decisões |
+| [`team-okrs`](skills/team-okrs/) | product | Folha de pontuação de OKRs |
+| [`meeting-notes`](skills/meeting-notes/) | operation | Log de decisões de reunião |
+| [`kanban-board`](skills/kanban-board/) | operation | Snapshot de board |
+| [`eng-runbook`](skills/eng-runbook/) | engineering | Runbook de incidentes |
+| [`finance-report`](skills/finance-report/) | finance | Sumário executivo financeiro |
+| [`invoice`](skills/invoice/) | finance | Fatura de página única |
+| [`hr-onboarding`](skills/hr-onboarding/) | hr | Plano de onboarding de cargo |
 
-Adding a skill takes one folder. Read [`docs/skills-protocol.md`](docs/skills-protocol.md) for the extended frontmatter, fork an existing skill, restart the daemon, it appears in the picker. The catalog endpoint is `GET /api/skills`; per-skill seed assembly (template + side-file references) lives at `GET /api/skills/:id/example`.
+Adicionar uma skill exige uma pasta. Leia [`docs/skills-protocol.md`](docs/skills-protocol.md) para o frontmatter estendido, faça fork de uma skill existente, reinicie o daemon, ela aparece no seletor. O endpoint do catálogo é `GET /api/skills`; a montagem de seed por skill (template + referências de side-files) vive em `GET /api/skills/:id/example`.
 
-## Six load-bearing ideas
+## Seis ideias estruturais
 
-### 1 · We don't ship an agent. Yours is good enough.
+### 1 · Não enviamos um agente. O seu já basta.
 
-The daemon scans your `PATH` for [`claude`](https://docs.anthropic.com/en/docs/claude-code), [`codex`](https://github.com/openai/codex), [`cursor-agent`](https://www.cursor.com/cli), [`gemini`](https://github.com/google-gemini/gemini-cli), [`opencode`](https://opencode.ai/), [`qwen`](https://github.com/QwenLM/qwen-code), [`copilot`](https://github.com/features/copilot/cli), `hermes`, `kimi`, [`pi`](https://github.com/mariozechner/pi-ai), and [`kiro-cli`](https://kiro.dev) on startup. Whichever ones it finds become candidate design engines — driven over stdio with one adapter per CLI, swappable from the model picker. Inspired by [`multica`](https://github.com/multica-ai/multica) and [`cc-switch`](https://github.com/farion1231/cc-switch). No CLI installed? `POST /api/proxy/stream` is the same pipeline minus the spawn — paste any OpenAI-compatible `baseUrl` + `apiKey` and the daemon forwards SSE chunks back, with loopback / link-local / RFC1918 destinations rejected at the edge.
+O daemon escaneia seu `PATH` em busca de [`claude`](https://docs.anthropic.com/en/docs/claude-code), [`codex`](https://github.com/openai/codex), [`cursor-agent`](https://www.cursor.com/cli), [`gemini`](https://github.com/google-gemini/gemini-cli), [`opencode`](https://opencode.ai/), [`qwen`](https://github.com/QwenLM/qwen-code), [`copilot`](https://github.com/features/copilot/cli), `hermes`, `kimi`, [`pi`](https://github.com/mariozechner/pi-ai), e [`kiro-cli`](https://kiro.dev) na inicialização. Aqueles que ele encontra tornam-se motores de design candidatos — conduzidos por stdio com um adapter por CLI, intercambiáveis a partir do seletor de modelo. Inspirado por [`multica`](https://github.com/multica-ai/multica) e [`cc-switch`](https://github.com/farion1231/cc-switch). Sem CLI instalada? `POST /api/proxy/stream` é o mesmo pipeline sem o spawn — cole qualquer `baseUrl` + `apiKey` compatível com OpenAI e o daemon encaminha os chunks SSE de volta, com destinos loopback / link-local / RFC1918 rejeitados na borda.
 
-### 2 · Skills are files, not plugins.
+### 2 · Skills são arquivos, não plugins.
 
-Following Claude Code's [`SKILL.md` convention](https://docs.anthropic.com/en/docs/claude-code/skills), each skill is `SKILL.md` + `assets/` + `references/`. Drop a folder into [`skills/`](skills/), restart the daemon, it appears in the picker. The bundled `magazine-web-ppt` is [`op7418/guizang-ppt-skill`](https://github.com/op7418/guizang-ppt-skill) committed verbatim — original license preserved, attribution preserved.
+Seguindo a [convenção `SKILL.md`](https://docs.anthropic.com/en/docs/claude-code/skills) do Claude Code, cada skill é `SKILL.md` + `assets/` + `references/`. Solte uma pasta em [`skills/`](skills/), reinicie o daemon, ela aparece no seletor. O `magazine-web-ppt` empacotado é o [`op7418/guizang-ppt-skill`](https://github.com/op7418/guizang-ppt-skill) commitado verbatim — licença original preservada, atribuição preservada.
 
-### 3 · Design Systems are portable Markdown, not theme JSON.
+### 3 · Design Systems são Markdown portátil, não JSON de tema.
 
-The 9-section `DESIGN.md` schema from [`VoltAgent/awesome-design-md`][acd2] — color, typography, spacing, layout, components, motion, voice, brand, anti-patterns. Every artifact reads from the active system. Switch system → next render uses the new tokens. The dropdown ships with **Linear, Stripe, Vercel, Airbnb, Tesla, Notion, Apple, Anthropic, Cursor, Supabase, Figma, Resend, Raycast, Lovable, Cohere, Mistral, ElevenLabs, X.AI, Spotify, Webflow, Sanity, PostHog, Sentry, MongoDB, ClickHouse, Cal, Replicate, Clay, Composio, Xiaohongshu…** — plus 57 design skills sourced from [`awesome-design-skills`][ads].
+O schema de 9 seções `DESIGN.md` de [`VoltAgent/awesome-design-md`][acd2] — cor, tipografia, espaçamento, layout, componentes, motion, voz, marca, anti-padrões. Todo artefato lê do sistema ativo. Troque o sistema → o próximo render usa os novos tokens. O dropdown vem com **Linear, Stripe, Vercel, Airbnb, Tesla, Notion, Apple, Anthropic, Cursor, Supabase, Figma, Resend, Raycast, Lovable, Cohere, Mistral, ElevenLabs, X.AI, Spotify, Webflow, Sanity, PostHog, Sentry, MongoDB, ClickHouse, Cal, Replicate, Clay, Composio, Xiaohongshu…** — mais 57 design skills vindas de [`awesome-design-skills`][ads].
 
-### 4 · The interactive question form prevents 80% of redirects.
+### 4 · O formulário de perguntas interativo previne 80% dos redirecionamentos.
 
-OD's prompt stack hard-codes a `RULE 1`: every fresh design brief begins with a `<question-form id="discovery">` instead of code. Surface · audience · tone · brand context · scale · constraints. A long brief still leaves design decisions open — visual tone, color stance, scale — exactly the things the form locks down in 30 seconds. The cost of a wrong direction is one chat round, not one finished deck.
+A stack de prompts do OD codifica uma `RULE 1`: todo brief de design fresco começa com um `<question-form id="discovery">` em vez de código. Superfície · audiência · tom · contexto de marca · escala · restrições. Um brief longo ainda deixa decisões de design em aberto — tom visual, postura de cor, escala — exatamente as coisas que o formulário trava em 30 segundos. O custo de uma direção errada é uma rodada de chat, não um deck terminado.
 
-This is the **Junior-Designer mode** distilled from [`huashu-design`](https://github.com/alchaincyf/huashu-design): batch the questions up front, show something visible early (even a wireframe with grey blocks), let the user redirect cheaply. Combined with the brand-asset protocol (locate · download · `grep` hex · write `brand-spec.md` · vocalise), it's the single biggest reason output stops feeling like AI freestyle and starts feeling like a designer who paid attention before painting.
+Este é o **modo Junior-Designer** destilado de [`huashu-design`](https://github.com/alchaincyf/huashu-design): faça as perguntas em batch upfront, mostre algo visível cedo (mesmo um wireframe com blocos cinzas), permita que o usuário redirecione barato. Combinado com o protocolo de ativos de marca (localizar · baixar · `grep` hex · escrever `brand-spec.md` · vocalizar), é a maior razão única pela qual a saída deixa de parecer freestyle de IA e passa a parecer uma designer que prestou atenção antes de pintar.
 
-### 5 · The daemon makes the agent feel like it's on your laptop, because it is.
+### 5 · O daemon faz o agente parecer estar no seu laptop, porque está.
 
-The daemon spawns the CLI with `cwd` set to the project's artifact folder under `.od/projects/<id>/`. The agent gets `Read`, `Write`, `Bash`, `WebFetch` — real tools against a real filesystem. It can `Read` the skill's `assets/template.html`, `grep` your CSS for hex values, write a `brand-spec.md`, drop generated images, and produce `.pptx` / `.zip` / `.pdf` files that show up in the file workspace as download chips when the turn ends. Sessions, conversations, messages, tabs persist in a local SQLite DB — pop the project open tomorrow and the agent's todo card is right where you left it.
+O daemon faz spawn da CLI com `cwd` definido para a pasta de artefatos do projeto sob `.od/projects/<id>/`. O agente recebe `Read`, `Write`, `Bash`, `WebFetch` — ferramentas reais contra um sistema de arquivos real. Ele pode `Read` no `assets/template.html` da skill, `grep` no seu CSS por valores hex, escrever um `brand-spec.md`, soltar imagens geradas, e produzir arquivos `.pptx` / `.zip` / `.pdf` que aparecem no workspace de arquivos como chips de download quando a turn termina. Sessões, conversas, mensagens, abas persistem em um DB SQLite local — abra o projeto amanhã e o card de todo do agente está exatamente onde você deixou.
 
-### 6 · The prompt stack is the product.
+### 6 · A stack de prompts é o produto.
 
-What you compose at send time isn't "system + user". It's:
+O que você compõe na hora do envio não é "system + user". É:
 
 ```
-DISCOVERY directives  (turn-1 form, turn-2 brand branch, TodoWrite, 5-dim critique)
+DISCOVERY directives  (formulário do turn-1, branch de marca do turn-2, TodoWrite, crítica de 5 dimensões)
   + identity charter   (OFFICIAL_DESIGNER_PROMPT, anti-AI-slop, junior-pass)
-  + active DESIGN.md   (72 systems available)
-  + active SKILL.md    (31 skills available)
-  + project metadata   (kind, fidelity, speakerNotes, animations, inspiration ids)
-  + skill side files   (auto-injected pre-flight: read assets/template.html + references/*.md)
-  + (deck kind, no skill seed) DECK_FRAMEWORK_DIRECTIVE   (nav / counter / scroll / print)
+  + DESIGN.md ativo    (72 sistemas disponíveis)
+  + SKILL.md ativo     (31 skills disponíveis)
+  + metadata do projeto (kind, fidelity, speakerNotes, animations, ids de inspiração)
+  + side files da skill (auto-injetados em pre-flight: ler assets/template.html + references/*.md)
+  + (deck kind, sem seed de skill) DECK_FRAMEWORK_DIRECTIVE   (nav / counter / scroll / print)
 ```
 
-Every layer is composable. Every layer is a file you can edit. Read [`apps/web/src/prompts/system.ts`](apps/web/src/prompts/system.ts) and [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts) to see the actual contract.
+Cada camada é componível. Cada camada é um arquivo que você pode editar. Leia [`apps/web/src/prompts/system.ts`](apps/web/src/prompts/system.ts) e [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts) para ver o contrato real.
 
-## Architecture
+## Arquitetura
 
 ```
 ┌────────────────────── browser (Next.js 16) ──────────────────────┐
-│  chat · file workspace · iframe preview · settings · imports     │
+│  chat · workspace de arquivos · preview iframe · settings · imports │
 └──────────────┬───────────────────────────────────┬───────────────┘
-               │ /api/* (rewritten in dev)          │
+               │ /api/* (reescrito em dev)          │
                ▼                                    ▼
    ┌──────────────────────────────────┐   /api/proxy/stream (SSE)
-   │  Local daemon (Express + SQLite) │   ─→ any OpenAI-compat
-   │                                  │       endpoint (BYOK)
-   │  /api/agents          /api/skills│       w/ SSRF blocking
+   │  Daemon local (Express + SQLite) │   ─→ qualquer endpoint
+   │                                  │       compatível com OpenAI (BYOK)
+   │  /api/agents          /api/skills│       com bloqueio SSRF
    │  /api/design-systems  /api/projects/…
    │  /api/chat (SSE)      /api/proxy/stream (SSE)
    │  /api/templates       /api/import/claude-design
@@ -272,7 +272,7 @@ Every layer is composable. Every layer is a file you can edit. Read [`apps/web/s
    │  /api/upload          /api/projects/:id/files…
    │  /artifacts (static)  /frames (static)
    │
-   │  optional: sidecar IPC at /tmp/open-design/ipc/<ns>/<app>.sock
+   │  opcional: IPC de sidecar em /tmp/open-design/ipc/<ns>/<app>.sock
    │  (STATUS · EVAL · SCREENSHOT · CONSOLE · CLICK · SHUTDOWN)
    └─────────┬────────────────────────┘
              │ spawn(cli, [...], { cwd: .od/projects/<id> })
@@ -280,21 +280,21 @@ Every layer is composable. Every layer is a file you can edit. Read [`apps/web/s
    ┌──────────────────────────────────────────────────────────────────┐
    │  claude · codex · gemini · opencode · cursor-agent · qwen        │
    │  copilot · hermes (ACP) · kimi (ACP) · pi (RPC) · kiro (ACP)      │
-   │  reads SKILL.md + DESIGN.md, writes artifacts to disk            │
+   │  lê SKILL.md + DESIGN.md, escreve artefatos no disco             │
    └──────────────────────────────────────────────────────────────────┘
 ```
 
-| Layer | Stack |
+| Camada | Stack |
 |---|---|
-| Frontend | Next.js 16 App Router + React 18 + TypeScript, Vercel-deployable |
-| Daemon | Node 24 · Express · SSE streaming · `better-sqlite3`; tables: `projects` · `conversations` · `messages` · `tabs` · `templates` |
-| Agent transport | `child_process.spawn`; typed-event parsers for `claude-stream-json` (Claude Code), `copilot-stream-json` (Copilot), `json-event-stream` per-CLI parsers (Codex / Gemini / OpenCode / Cursor Agent), `acp-json-rpc` (Hermes / Kimi / Kiro via Agent Client Protocol), `pi-rpc` (Pi via stdio JSON-RPC), `plain` (Qwen Code) |
-| BYOK proxy | `POST /api/proxy/stream` → OpenAI-compatible `/v1/chat/completions`, SSE pass-through; rejects loopback / link-local / RFC1918 hosts at the daemon edge |
-| Storage | Plain files in `.od/projects/<id>/` + SQLite at `.od/app.sqlite` (gitignored, auto-created). Override the root with `OD_DATA_DIR` for test isolation |
-| Preview | Sandboxed iframe via `srcdoc` + per-skill `<artifact>` parser ([`apps/web/src/artifacts/parser.ts`](apps/web/src/artifacts/parser.ts)) |
-| Export | HTML (inline assets) · PDF (browser print, deck-aware) · PPTX (agent-driven via skill) · ZIP (archiver) · Markdown |
-| Lifecycle | `pnpm tools-dev start \| stop \| run \| status \| logs \| inspect \| check`; ports via `--daemon-port` / `--web-port`, namespaces via `--namespace` |
-| Desktop (optional) | Electron shell — discovers the web URL through sidecar IPC, no port guessing; same `STATUS`/`EVAL`/`SCREENSHOT`/`CONSOLE`/`CLICK`/`SHUTDOWN` channel powers `tools-dev inspect desktop …` for E2E |
+| Frontend | Next.js 16 App Router + React 18 + TypeScript, deployable na Vercel |
+| Daemon | Node 24 · Express · streaming SSE · `better-sqlite3`; tabelas: `projects` · `conversations` · `messages` · `tabs` · `templates` |
+| Transporte do agente | `child_process.spawn`; parsers de eventos tipados para `claude-stream-json` (Claude Code), `copilot-stream-json` (Copilot), parsers `json-event-stream` por CLI (Codex / Gemini / OpenCode / Cursor Agent), `acp-json-rpc` (Hermes / Kimi / Kiro via Agent Client Protocol), `pi-rpc` (Pi via JSON-RPC stdio), `plain` (Qwen Code) |
+| Proxy BYOK | `POST /api/proxy/stream` → `/v1/chat/completions` compatível com OpenAI, pass-through SSE; rejeita hosts loopback / link-local / RFC1918 na borda do daemon |
+| Storage | Arquivos planos em `.od/projects/<id>/` + SQLite em `.od/app.sqlite` (gitignored, auto-criado). Sobreponha a raiz com `OD_DATA_DIR` para isolamento de testes |
+| Preview | Iframe sandboxed via `srcdoc` + parser `<artifact>` por skill ([`apps/web/src/artifacts/parser.ts`](apps/web/src/artifacts/parser.ts)) |
+| Export | HTML (assets inline) · PDF (impressão do browser, deck-aware) · PPTX (orientado pelo agente via skill) · ZIP (archiver) · Markdown |
+| Lifecycle | `pnpm tools-dev start \| stop \| run \| status \| logs \| inspect \| check`; portas via `--daemon-port` / `--web-port`, namespaces via `--namespace` |
+| Desktop (opcional) | Shell Electron — descobre a URL web via IPC de sidecar, sem adivinhar portas; o mesmo canal `STATUS`/`EVAL`/`SCREENSHOT`/`CONSOLE`/`CLICK`/`SHUTDOWN` alimenta `tools-dev inspect desktop …` para E2E |
 
 ## Quickstart
 
@@ -302,91 +302,92 @@ Every layer is composable. Every layer is a file you can edit. Read [`apps/web/s
 git clone https://github.com/nexu-io/open-design.git
 cd open-design
 corepack enable
-corepack pnpm --version   # should print 10.33.2
+corepack pnpm --version   # deve imprimir 10.33.2
 pnpm install
 pnpm tools-dev run web
-# open the web URL printed by tools-dev
+# abra a URL web impressa pelo tools-dev
 ```
 
-Environment requirements: Node `~24` and pnpm `10.33.x`. `nvm`/`fnm` are optional helpers only; if you use one, run `nvm install 24 && nvm use 24` or `fnm install 24 && fnm use 24` before `pnpm install`.
+Requisitos de ambiente: Node `~24` e pnpm `10.33.x`. `nvm`/`fnm` são ajudantes opcionais; se você usar um, rode `nvm install 24 && nvm use 24` ou `fnm install 24 && fnm use 24` antes de `pnpm install`.
 
-For desktop/background startup, fixed-port restarts, and media generation dispatcher checks (`OD_BIN`, `OD_DAEMON_URL`, `apps/daemon/dist/cli.js`), see [`QUICKSTART.md`](QUICKSTART.md).
+Para inicialização desktop/background, restarts em portas fixas e checagens do dispatcher de geração de mídia (`OD_BIN`, `OD_DAEMON_URL`, `apps/daemon/dist/cli.js`), veja [`QUICKSTART.md`](QUICKSTART.md).
 
-The first load:
+A primeira carga:
 
-1. Detects which agent CLIs you have on `PATH` and picks one automatically.
-2. Loads 31 skills + 72 design systems.
-3. Pops the welcome dialog so you can paste an Anthropic key (only needed for the BYOK fallback path).
-4. **Auto-creates `./.od/`** — the local runtime folder for the SQLite project DB, per-project artifacts, and saved renders. There is no `od init` step; the daemon `mkdir`s everything it needs on boot.
+1. Detecta quais CLIs de agente você tem no `PATH` e escolhe uma automaticamente.
+2. Carrega 31 skills + 72 design systems.
+3. Abre o diálogo de boas-vindas para você colar uma chave Anthropic (necessária apenas para o caminho de fallback BYOK).
+4. **Auto-cria `./.od/`** — a pasta de runtime local para o DB SQLite de projetos, artefatos por projeto e renders salvos. Não há passo `od init`; o daemon faz `mkdir` em tudo que precisa no boot.
 
-Type a prompt, hit **Send**, watch the question form arrive, fill it, watch the todo card stream, watch the artifact render. Click **Save to disk** or download as a project ZIP.
+Digite um prompt, aperte **Send**, observe o formulário de perguntas chegar, preencha-o, observe o card de todo fluir, observe o artefato renderizar. Clique em **Save to disk** ou baixe como um ZIP do projeto.
 
-### First-run state (`./.od/`)
+### Estado de primeira execução (`./.od/`)
 
-The daemon owns one hidden folder at the repo root. Everything in it is gitignored and machine-local — never commit it.
+O daemon possui uma pasta oculta na raiz do repo. Tudo nela é gitignored e local da máquina — nunca faça commit.
 
 ```
 .od/
-├── app.sqlite                 ← projects · conversations · messages · open tabs
-├── artifacts/                 ← one-off "Save to disk" renders (timestamped)
-└── projects/<id>/             ← per-project working dir, also the agent's cwd
+├── app.sqlite                 ← projetos · conversas · mensagens · abas abertas
+├── artifacts/                 ← renders pontuais "Save to disk" (com timestamp)
+└── projects/<id>/             ← diretório de trabalho por projeto, também o cwd do agente
 ```
 
-| Want to… | Do this |
+| Quer… | Faça isso |
 |---|---|
-| Inspect what's in there | `ls -la .od && sqlite3 .od/app.sqlite '.tables'` |
-| Reset to a clean slate | `pnpm tools-dev stop`, `rm -rf .od`, run `pnpm tools-dev run web` again |
-| Move it elsewhere | not supported yet — the path is hard-coded relative to the repo |
+| Inspecionar o que está lá | `ls -la .od && sqlite3 .od/app.sqlite '.tables'` |
+| Resetar para um estado limpo | `pnpm tools-dev stop`, `rm -rf .od`, rode `pnpm tools-dev run web` novamente |
+| Movê-lo para outro lugar | ainda não suportado — o caminho é hard-coded relativo ao repo |
 
-Full file map, scripts, and troubleshooting → [`QUICKSTART.md`](QUICKSTART.md).
+Mapa completo de arquivos, scripts e troubleshooting → [`QUICKSTART.md`](QUICKSTART.md).
 
-## Repository structure
+## Estrutura do repositório
 
 ```
 open-design/
-├── README.md                      ← this file
+├── README.md                      ← este arquivo (em inglês)
 ├── README.de.md                   ← Deutsch
 ├── README.zh-CN.md                ← 简体中文
-├── QUICKSTART.md                  ← run / build / deploy guide
-├── package.json                   ← pnpm workspace, single bin: od
+├── README.pt-BR.md                ← Português (Brasil)
+├── QUICKSTART.md                  ← guia de run / build / deploy
+├── package.json                   ← workspace pnpm, único bin: od
 │
 ├── apps/
-│   ├── daemon/                    ← Node + Express, the only server
-│   │   ├── src/                   ← TypeScript daemon source
-│   │   │   ├── cli.ts             ← `od` bin source, compiled to dist/cli.js
-│   │   │   ├── server.ts          ← /api/* routes (projects, chat, files, exports)
-│   │   │   ├── agents.ts          ← PATH scanner + per-CLI argv builders
-│   │   │   ├── claude-stream.ts   ← streaming JSON parser for Claude Code stdout
-│   │   │   ├── skills.ts          ← SKILL.md frontmatter loader
-│   │   │   └── db.ts              ← SQLite schema (projects/messages/templates/tabs)
-│   │   ├── sidecar/               ← tools-dev daemon sidecar wrapper
-│   │   └── tests/                 ← daemon package tests
+│   ├── daemon/                    ← Node + Express, o único servidor
+│   │   ├── src/                   ← fonte TypeScript do daemon
+│   │   │   ├── cli.ts             ← fonte do bin `od`, compilado para dist/cli.js
+│   │   │   ├── server.ts          ← rotas /api/* (projetos, chat, arquivos, exports)
+│   │   │   ├── agents.ts          ← scanner de PATH + builders de argv por CLI
+│   │   │   ├── claude-stream.ts   ← parser de JSON em streaming para stdout do Claude Code
+│   │   │   ├── skills.ts          ← loader do frontmatter SKILL.md
+│   │   │   └── db.ts              ← schema SQLite (projects/messages/templates/tabs)
+│   │   ├── sidecar/               ← wrapper de sidecar do daemon para tools-dev
+│   │   └── tests/                 ← testes do pacote daemon
 │   │
-│   └── web/                       ← Next.js 16 App Router + React client
-│       ├── app/                   ← App Router entrypoints
-│       ├── next.config.ts         ← dev rewrites + prod static export to out/
-│       └── src/                   ← React + TypeScript client modules
-│           ├── App.tsx            ← routing, bootstrap, settings
+│   └── web/                       ← cliente Next.js 16 App Router + React
+│       ├── app/                   ← entrypoints do App Router
+│       ├── next.config.ts         ← rewrites de dev + export estático prod para out/
+│       └── src/                   ← módulos cliente React + TypeScript
+│           ├── App.tsx            ← roteamento, bootstrap, settings
 │           ├── components/        ← chat, composer, picker, preview, sketch, …
 │           ├── prompts/
 │           │   ├── system.ts      ← composeSystemPrompt(base, skill, DS, metadata)
-│           │   ├── discovery.ts   ← turn-1 form + turn-2 branch + 5-dim critique
-│           │   └── directions.ts  ← 5 visual directions × OKLch palette + font stack
-│           ├── artifacts/         ← streaming <artifact> parser + manifests
-│           ├── runtime/           ← iframe srcdoc, markdown, export helpers
-│           ├── providers/         ← daemon SSE + BYOK API transports
-│           └── state/             ← config + projects (localStorage + daemon-backed)
+│           │   ├── discovery.ts   ← formulário do turn-1 + branch do turn-2 + crítica 5-dim
+│           │   └── directions.ts  ← 5 direções visuais × paleta OKLch + font stack
+│           ├── artifacts/         ← parser de <artifact> em streaming + manifests
+│           ├── runtime/           ← srcdoc do iframe, markdown, helpers de export
+│           ├── providers/         ← transports de SSE do daemon + API BYOK
+│           └── state/             ← config + projetos (localStorage + daemon-backed)
 │
-├── e2e/                           ← Playwright UI + external integration/Vitest harness
+├── e2e/                           ← Playwright UI + harness de integração externa/Vitest
 │
 ├── packages/
-│   ├── contracts/                 ← shared web/daemon app contracts
-│   ├── sidecar-proto/             ← Open Design sidecar protocol contract
-│   ├── sidecar/                   ← generic sidecar runtime primitives
-│   └── platform/                  ← generic process/platform primitives
+│   ├── contracts/                 ← contratos compartilhados de app web/daemon
+│   ├── sidecar-proto/             ← contrato de protocolo de sidecar do Open Design
+│   ├── sidecar/                   ← primitivos genéricos de runtime de sidecar
+│   └── platform/                  ← primitivos genéricos de processo/plataforma
 │
-├── skills/                        ← 31 SKILL.md skill bundles (27 prototype + 4 deck)
-│   ├── web-prototype/             ← default for prototype mode
+├── skills/                        ← 31 bundles de skill SKILL.md (27 prototype + 4 deck)
+│   ├── web-prototype/             ← default para modo prototype
 │   ├── saas-landing/  dashboard/  pricing-page/  docs-page/  blog-post/
 │   ├── mobile-app/  mobile-onboarding/  gamified-app/
 │   ├── email-marketing/  social-carousel/  magazine-poster/
@@ -394,20 +395,20 @@ open-design/
 │   ├── critique/  tweaks/  wireframe-sketch/
 │   ├── pm-spec/  team-okrs/  meeting-notes/  kanban-board/
 │   ├── eng-runbook/  finance-report/  invoice/  hr-onboarding/
-│   ├── simple-deck/  replit-deck/  weekly-update/   ← deck mode
-│   └── guizang-ppt/               ← bundled magazine-web-ppt (default for deck)
+│   ├── simple-deck/  replit-deck/  weekly-update/   ← modo deck
+│   └── guizang-ppt/               ← magazine-web-ppt empacotado (default para deck)
 │       ├── SKILL.md
 │       ├── assets/template.html   ← seed
 │       └── references/{themes,layouts,components,checklist}.md
 │
-├── design-systems/                ← 72 DESIGN.md systems
+├── design-systems/                ← 72 sistemas DESIGN.md
 │   ├── default/                   ← Neutral Modern (starter)
 │   ├── warm-editorial/            ← Warm Editorial (starter)
 │   ├── linear-app/  vercel/  stripe/  airbnb/  notion/  cursor/  apple/  …
-│   └── README.md                  ← catalog overview
+│   └── README.md                  ← visão geral do catálogo
 │
 ├── assets/
-│   └── frames/                    ← shared device frames (used cross-skill)
+│   └── frames/                    ← frames de dispositivo compartilhados (uso cross-skill)
 │       ├── iphone-15-pro.html
 │       ├── android-pixel.html
 │       ├── ipad-pro.html
@@ -415,38 +416,38 @@ open-design/
 │       └── browser-chrome.html
 │
 ├── templates/
-│   └── deck-framework.html        ← deck baseline (nav / counter / print)
+│   └── deck-framework.html        ← baseline de deck (nav / counter / print)
 │
 ├── scripts/
-│   └── sync-design-systems.ts     ← re-import upstream awesome-design-md tarball
+│   └── sync-design-systems.ts     ← reimporta o tarball upstream awesome-design-md
 │
 ├── docs/
-│   ├── spec.md                    ← product spec, scenarios, differentiation
-│   ├── architecture.md            ← topologies, data flow, components
-│   ├── skills-protocol.md         ← extended SKILL.md od: frontmatter
-│   ├── agent-adapters.md          ← per-CLI detection + dispatch
+│   ├── spec.md                    ← spec do produto, cenários, diferenciação
+│   ├── architecture.md            ← topologias, fluxo de dados, componentes
+│   ├── skills-protocol.md         ← frontmatter od: estendido do SKILL.md
+│   ├── agent-adapters.md          ← detecção + dispatch por CLI
 │   ├── modes.md                   ← prototype / deck / template / design-system
-│   ├── references.md              ← long-form provenance
-│   ├── roadmap.md                 ← phased delivery
-│   ├── schemas/                   ← JSON schemas
-│   └── examples/                  ← canonical artifact examples
+│   ├── references.md              ← procedência long-form
+│   ├── roadmap.md                 ← entrega em fases
+│   ├── schemas/                   ← schemas JSON
+│   └── examples/                  ← exemplos canônicos de artefatos
 │
-└── .od/                           ← runtime data, gitignored, auto-created
-    ├── app.sqlite                 ← projects / conversations / messages / tabs
-    ├── projects/<id>/             ← per-project working folder (agent's cwd)
-    └── artifacts/                 ← saved one-off renders
+└── .od/                           ← dados de runtime, gitignored, auto-criado
+    ├── app.sqlite                 ← projetos / conversas / mensagens / abas
+    ├── projects/<id>/             ← pasta de trabalho por projeto (cwd do agente)
+    └── artifacts/                 ← renders pontuais salvos
 ```
 
 ## Design Systems
 
 <p align="center">
-  <img src="docs/assets/design-systems-library.png" alt="The 72 design systems library — style guide spread" width="100%" />
+  <img src="docs/assets/design-systems-library.png" alt="A biblioteca de 72 design systems — spread de style guide" width="100%" />
 </p>
 
-72 systems out of the box, each as a single [`DESIGN.md`](design-systems/README.md):
+72 sistemas na caixa, cada um como um único [`DESIGN.md`](design-systems/README.md):
 
 <details>
-<summary><b>Full catalog</b> (click to expand)</summary>
+<summary><b>Catálogo completo</b> (clique para expandir)</summary>
 
 **AI & LLM** — `claude` · `cohere` · `mistral-ai` · `minimax` · `together-ai` · `replicate` · `runwayml` · `elevenlabs` · `ollama` · `x-ai`
 
@@ -468,71 +469,71 @@ open-design/
 
 </details>
 
-The product-system library is imported via [`scripts/sync-design-systems.ts`](scripts/sync-design-systems.ts) from [`VoltAgent/awesome-design-md`][acd2]. Re-run to refresh. The 57 design skills are sourced from [`bergside/awesome-design-skills`][ads] and added directly in `design-systems/`.
+A biblioteca de sistemas de produto é importada via [`scripts/sync-design-systems.ts`](scripts/sync-design-systems.ts) de [`VoltAgent/awesome-design-md`][acd2]. Rode novamente para atualizar. As 57 design skills vêm de [`bergside/awesome-design-skills`][ads] e são adicionadas diretamente em `design-systems/`.
 
-## Visual directions
+## Direções visuais
 
-When the user has no brand spec, the agent emits a second form with five curated directions — the OD adaptation of [`huashu-design`'s "5 schools × 20 design philosophies" fallback](https://github.com/alchaincyf/huashu-design#%E8%AE%BE%E8%AE%A1%E6%96%B9%E5%90%91%E9%A1%BE%E9%97%AE-fallback). Each direction is a deterministic spec — palette in OKLch, font stack, layout posture cues, references — that the agent binds verbatim into the seed template's `:root`. One radio click → a fully specified visual system. No improvisation, no AI-slop.
+Quando o usuário não tem brand spec, o agente emite um segundo formulário com cinco direções curadas — a adaptação OD do [fallback "5 escolas × 20 filosofias de design" de `huashu-design`](https://github.com/alchaincyf/huashu-design#%E8%AE%BE%E8%AE%A1%E6%96%B9%E5%90%91%E9%A1%BE%E9%97%AE-fallback). Cada direção é uma spec determinística — paleta em OKLch, font stack, sinais de postura de layout, referências — que o agente vincula verbatim no `:root` do template seed. Um clique no radio → um sistema visual completamente especificado. Sem improvisação, sem AI-slop.
 
-| Direction | Mood | Refs |
+| Direção | Mood | Refs |
 |---|---|---|
-| Editorial — Monocle / FT | Print magazine, ink + cream + warm rust | Monocle · FT Weekend · NYT Magazine |
-| Modern minimal — Linear / Vercel | Cool, structured, minimal accent | Linear · Vercel · Stripe |
-| Tech utility | Information density, monospace, terminal | Bloomberg · Bauhaus tools |
-| Brutalist | Raw, oversized type, no shadows, harsh accents | Bloomberg Businessweek · Achtung |
-| Soft warm | Generous, low contrast, peachy neutrals | Notion marketing · Apple Health |
+| Editorial — Monocle / FT | Revista impressa, tinta + cream + ferrugem quente | Monocle · FT Weekend · NYT Magazine |
+| Modern minimal — Linear / Vercel | Frio, estruturado, accent mínimo | Linear · Vercel · Stripe |
+| Tech utility | Densidade de informação, monospace, terminal | Bloomberg · ferramentas Bauhaus |
+| Brutalist | Cru, tipo oversized, sem sombras, accents ásperos | Bloomberg Businessweek · Achtung |
+| Soft warm | Generoso, baixo contraste, neutros pêssego | Notion marketing · Apple Health |
 
-Full spec → [`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts).
+Spec completa → [`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts).
 
-## Beyond chat — what else ships
+## Além do chat — o que mais vem incluído
 
-The chat / artifact loop gets the spotlight, but a handful of less-visible capabilities are already wired and worth knowing before you compare OD to anything else:
+O loop de chat / artefato pega o destaque, mas várias capacidades menos visíveis já estão conectadas e valem ser conhecidas antes de comparar OD com qualquer outra coisa:
 
-- **Claude Design ZIP import.** Drop an export from claude.ai onto the welcome dialog. `POST /api/import/claude-design` extracts it into a real `.od/projects/<id>/`, opens the entry file as a tab, and stages a continue-where-Anthropic-left-off prompt for your local agent. No re-prompting, no "ask the model to re-create what we just had". ([`apps/daemon/src/server.ts`](apps/daemon/src/server.ts) — `/api/import/claude-design`)
-- **OpenAI-compatible BYOK proxy.** `POST /api/proxy/stream` takes `{ baseUrl, apiKey, model, messages }`, normalises the path (`…/v1/chat/completions`), forwards SSE chunks back to the browser, and rejects loopback / link-local / RFC1918 destinations to head off SSRF. Anything that speaks the OpenAI chat schema works — Anthropic-via-OpenAI shim, DeepSeek, Groq, MiMo, OpenRouter, your self-hosted vLLM. MiMo gets `tool_choice: 'none'` automatically because its tool schema misbehaves on free-form generation.
-- **User-saved templates.** Once you like a render, `POST /api/templates` snapshots the HTML + metadata into the SQLite `templates` table. The next project picks it from a "your templates" row in the picker — same surface as the shipped 31, but yours.
-- **Tab persistence.** Every project remembers its open files and active tab in the `tabs` table. Reopen the project tomorrow and the workspace looks exactly the way you left it.
-- **Artifact lint API.** `POST /api/artifacts/lint` runs structural checks on a generated artifact (broken `<artifact>` framing, missing required side files, stale palette tokens) and returns findings the agent can read back into its next turn. The five-dim self-critique uses this to ground its score in real evidence, not vibes.
-- **Sidecar protocol + desktop automation.** Daemon, web, and desktop processes carry typed five-field stamps (`app · mode · namespace · ipc · source`) and expose a JSON-RPC IPC channel at `/tmp/open-design/ipc/<namespace>/<app>.sock`. `tools-dev inspect desktop status \| eval \| screenshot` drives that channel, so headless E2E works against a real Electron shell without bespoke harnesses ([`packages/sidecar-proto/`](packages/sidecar-proto/), [`apps/desktop/src/main/`](apps/desktop/src/main/)).
-- **Windows-friendly spawning.** Every adapter that would otherwise blow `CreateProcess`'s ~32 KB argv limit on long composed prompts (Codex, Gemini, OpenCode, Cursor Agent, Qwen, Pi) feeds the prompt over stdin instead. Claude Code and Copilot keep `-p`; the daemon falls back to a temp prompt-file when even that overflows.
-- **Per-namespace runtime data.** `OD_DATA_DIR` and `--namespace` give you fully isolated `.od/`-style trees, so Playwright, beta channels, and your real projects never share a SQLite file.
+- **Importação de ZIP do Claude Design.** Solte uma exportação de claude.ai no diálogo de boas-vindas. `POST /api/import/claude-design` extrai em um real `.od/projects/<id>/`, abre o arquivo de entrada como aba, e prepara um prompt continue-de-onde-a-Anthropic-parou para seu agente local. Sem re-prompting, sem "peça ao modelo para recriar o que acabamos de ter". ([`apps/daemon/src/server.ts`](apps/daemon/src/server.ts) — `/api/import/claude-design`)
+- **Proxy BYOK compatível com OpenAI.** `POST /api/proxy/stream` aceita `{ baseUrl, apiKey, model, messages }`, normaliza o caminho (`…/v1/chat/completions`), encaminha chunks SSE de volta ao browser, e rejeita destinos loopback / link-local / RFC1918 para evitar SSRF. Qualquer coisa que fale o schema chat OpenAI funciona — shim Anthropic-via-OpenAI, DeepSeek, Groq, MiMo, OpenRouter, seu vLLM auto-hospedado. MiMo recebe `tool_choice: 'none'` automaticamente porque seu schema de tools se comporta mal em geração free-form.
+- **Templates salvos pelo usuário.** Uma vez que você gosta de um render, `POST /api/templates` faz snapshot do HTML + metadata na tabela `templates` do SQLite. O próximo projeto o escolhe a partir de uma linha "your templates" no seletor — mesma superfície que as 31 enviadas, mas suas.
+- **Persistência de abas.** Todo projeto lembra seus arquivos abertos e a aba ativa na tabela `tabs`. Reabra o projeto amanhã e o workspace fica exatamente do jeito que você deixou.
+- **API de lint de artefatos.** `POST /api/artifacts/lint` roda checagens estruturais em um artefato gerado (framing `<artifact>` quebrado, side files obrigatórios faltando, tokens de paleta velhos) e retorna findings que o agente pode ler de volta no próximo turn. A auto-crítica de cinco dimensões usa isso para fundamentar sua pontuação em evidência real, não vibes.
+- **Protocolo de sidecar + automação desktop.** Processos daemon, web e desktop carregam stamps tipados de cinco campos (`app · mode · namespace · ipc · source`) e expõem um canal IPC JSON-RPC em `/tmp/open-design/ipc/<namespace>/<app>.sock`. `tools-dev inspect desktop status \| eval \| screenshot` dirige esse canal, então E2E headless funciona contra um shell Electron real sem harnesses sob medida ([`packages/sidecar-proto/`](packages/sidecar-proto/), [`apps/desktop/src/main/`](apps/desktop/src/main/)).
+- **Spawning Windows-friendly.** Todo adapter que de outra forma estouraria o limite ~32 KB de argv de `CreateProcess` em prompts compostos longos (Codex, Gemini, OpenCode, Cursor Agent, Qwen, Pi) alimenta o prompt via stdin. Claude Code e Copilot mantêm `-p`; o daemon faz fallback para um arquivo de prompt temporário quando até isso transborda.
+- **Dados de runtime por namespace.** `OD_DATA_DIR` e `--namespace` te dão árvores `.od/` totalmente isoladas, então Playwright, canais beta e seus projetos reais nunca compartilham um arquivo SQLite.
 
-## Anti-AI-slop machinery
+## Maquinário anti-AI-slop
 
-The whole machinery below is the [`huashu-design`](https://github.com/alchaincyf/huashu-design) playbook, ported into OD's prompt-stack and made enforceable per-skill via the side-file pre-flight. Read [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts) for the live wording:
+Todo o maquinário abaixo é o playbook de [`huashu-design`](https://github.com/alchaincyf/huashu-design), portado para a stack de prompts do OD e tornado aplicável por skill via o pre-flight de side files. Leia [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts) para o fraseado vivo:
 
-- **Question form first.** Turn 1 is `<question-form>` only — no thinking, no tools, no narration. The user chooses defaults at radio speed.
-- **Brand-spec extraction.** When the user attaches a screenshot or URL, the agent runs a five-step protocol (locate · download · grep hex · codify `brand-spec.md` · vocalise) before writing CSS. **Never guesses brand colors from memory.**
-- **Five-dim critique.** Before emitting `<artifact>`, the agent silently scores its output 1–5 across philosophy / hierarchy / execution / specificity / restraint. Anything under 3/5 is a regression — fix and rescore. Two passes is normal.
-- **P0/P1/P2 checklist.** Every skill ships a `references/checklist.md` with hard P0 gates. The agent must pass P0 before emitting.
-- **Slop blacklist.** Aggressive purple gradients, generic emoji icons, rounded card with left-border accent, hand-drawn SVG humans, Inter as a *display* face, invented metrics — explicitly forbidden in the prompt.
-- **Honest placeholders > fake stats.** When the agent doesn't have a real number, it writes `—` or a labelled grey block, not "10× faster".
+- **Formulário de perguntas primeiro.** O turn 1 é apenas `<question-form>` — sem thinking, sem ferramentas, sem narração. O usuário escolhe defaults na velocidade do radio.
+- **Extração de brand-spec.** Quando o usuário anexa um screenshot ou URL, o agente roda um protocolo de cinco passos (localizar · baixar · grep hex · codificar `brand-spec.md` · vocalizar) antes de escrever CSS. **Nunca adivinha cores de marca da memória.**
+- **Crítica 5-dim.** Antes de emitir `<artifact>`, o agente pontua silenciosamente sua saída de 1–5 em filosofia / hierarquia / execução / especificidade / contenção. Qualquer coisa abaixo de 3/5 é uma regressão — corrige e re-pontua. Dois passes é normal.
+- **Checklist P0/P1/P2.** Toda skill envia um `references/checklist.md` com gates P0 rígidos. O agente deve passar P0 antes de emitir.
+- **Blacklist de slop.** Gradientes roxos agressivos, ícones emoji genéricos, card arredondado com accent de borda esquerda, humanos SVG desenhados à mão, Inter como face *display*, métricas inventadas — explicitamente proibidos no prompt.
+- **Placeholders honestos > stats falsos.** Quando o agente não tem um número real, ele escreve `—` ou um bloco cinza rotulado, não "10× mais rápido".
 
-## Comparison
+## Comparação
 
-| Axis | [Claude Design][cd] (Anthropic) | [Open CoDesign][ocod] | **Open Design** |
+| Eixo | [Claude Design][cd] (Anthropic) | [Open CoDesign][ocod] | **Open Design** |
 |---|---|---|---|
-| License | Closed | MIT | **Apache-2.0** |
-| Form factor | Web (claude.ai) | Desktop (Electron) | **Web app + local daemon** |
-| Deployable on Vercel | ❌ | ❌ | **✅** |
-| Agent runtime | Bundled (Opus 4.7) | Bundled ([`pi-ai`][piai]) | **Delegated to user's existing CLI** |
-| Skills | Proprietary | 12 custom TS modules + `SKILL.md` | **31 file-based [`SKILL.md`][skill] bundles, droppable** |
-| Design system | Proprietary | `DESIGN.md` (v0.2 roadmap) | **`DESIGN.md` × 129 systems shipped** |
-| Provider flexibility | Anthropic only | 7+ via [`pi-ai`][piai] | **10 CLI adapters + OpenAI-compatible BYOK proxy** |
-| Init question form | ❌ | ❌ | **✅ Hard rule, turn 1** |
-| Direction picker | ❌ | ❌ | **✅ 5 deterministic directions** |
-| Live todo progress + tool stream | ❌ | ✅ | **✅** (UX pattern from open-codesign) |
-| Sandboxed iframe preview | ❌ | ✅ | **✅** (pattern from open-codesign) |
-| Claude Design ZIP import | n/a | ❌ | **✅ `POST /api/import/claude-design` — keep editing where Anthropic left off** |
-| Comment-mode surgical edits | ❌ | ✅ | 🚧 roadmap (lift from open-codesign) |
-| AI-emitted tweaks panel | ❌ | ✅ | 🟡 partial — [`tweaks` skill](skills/tweaks/) ships, dedicated chat-side panel UX still on roadmap |
-| Filesystem-grade workspace | ❌ | partial (Electron sandbox) | **✅ Real cwd, real tools, persisted SQLite (projects · conversations · messages · tabs · templates)** |
-| 5-dim self-critique | ❌ | ❌ | **✅ Pre-emit gate** |
-| Artifact lint | ❌ | ❌ | **✅ `POST /api/artifacts/lint` — findings fed back to the agent** |
-| Sidecar IPC + headless desktop | ❌ | ❌ | **✅ Stamped processes + `tools-dev inspect desktop status \| eval \| screenshot`** |
-| Export formats | Limited | HTML / PDF / PPTX / ZIP / Markdown | **HTML / PDF / PPTX (agent-driven) / ZIP / Markdown** |
-| PPT skill reuse | N/A | Built-in | **[`guizang-ppt-skill`][guizang] drops in (default for deck mode)** |
-| Minimum billing | Pro / Max / Team | BYOK | **BYOK — paste any OpenAI-compatible `baseUrl`** |
+| Licença | Fechada | MIT | **Apache-2.0** |
+| Form factor | Web (claude.ai) | Desktop (Electron) | **App web + daemon local** |
+| Implantável na Vercel | ❌ | ❌ | **✅** |
+| Runtime do agente | Empacotado (Opus 4.7) | Empacotado ([`pi-ai`][piai]) | **Delegado para a CLI existente do usuário** |
+| Skills | Proprietárias | 12 módulos TS customizados + `SKILL.md` | **31 bundles [`SKILL.md`][skill] baseados em arquivo, soltáveis** |
+| Design system | Proprietário | `DESIGN.md` (roadmap v0.2) | **`DESIGN.md` × 129 sistemas enviados** |
+| Flexibilidade de provider | Apenas Anthropic | 7+ via [`pi-ai`][piai] | **10 adapters de CLI + proxy BYOK compatível com OpenAI** |
+| Formulário de perguntas inicial | ❌ | ❌ | **✅ Regra rígida, turn 1** |
+| Seletor de direções | ❌ | ❌ | **✅ 5 direções determinísticas** |
+| Progresso de todos ao vivo + stream de tools | ❌ | ✅ | **✅** (padrão UX de open-codesign) |
+| Preview iframe sandboxed | ❌ | ✅ | **✅** (padrão de open-codesign) |
+| Importação de ZIP do Claude Design | n/a | ❌ | **✅ `POST /api/import/claude-design` — continue editando de onde a Anthropic parou** |
+| Edições cirúrgicas em modo comentário | ❌ | ✅ | 🚧 roadmap (lift de open-codesign) |
+| Painel de tweaks emitidos pela IA | ❌ | ✅ | 🟡 parcial — a [skill `tweaks`](skills/tweaks/) é enviada, UX de painel dedicado lateral ao chat ainda no roadmap |
+| Workspace nível-filesystem | ❌ | parcial (sandbox Electron) | **✅ cwd real, ferramentas reais, SQLite persistido (projects · conversations · messages · tabs · templates)** |
+| Auto-crítica 5-dim | ❌ | ❌ | **✅ Gate pre-emit** |
+| Lint de artefatos | ❌ | ❌ | **✅ `POST /api/artifacts/lint` — findings retornados ao agente** |
+| IPC de sidecar + desktop headless | ❌ | ❌ | **✅ Processos com stamp + `tools-dev inspect desktop status \| eval \| screenshot`** |
+| Formatos de export | Limitado | HTML / PDF / PPTX / ZIP / Markdown | **HTML / PDF / PPTX (orientado pelo agente) / ZIP / Markdown** |
+| Reuso de skill PPT | N/A | Built-in | **[`guizang-ppt-skill`][guizang] entra (default para modo deck)** |
+| Cobrança mínima | Pro / Max / Team | BYOK | **BYOK — cole qualquer `baseUrl` compatível com OpenAI** |
 
 [cd]: https://x.com/claudeai/status/2045156267690213649
 [ocod]: https://github.com/OpenCoworkAI/open-codesign
@@ -541,116 +542,116 @@ The whole machinery below is the [`huashu-design`](https://github.com/alchaincyf
 [guizang]: https://github.com/op7418/guizang-ppt-skill
 [skill]: https://docs.anthropic.com/en/docs/claude-code/skills
 
-## Supported coding agents
+## Agentes de codificação suportados
 
-Auto-detected from `PATH` on daemon boot. No config required. Streaming dispatch lives in [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts) (`AGENT_DEFS`); per-CLI parsers live alongside it. Models are populated either by probing `<bin> --list-models` / `<bin> models` / ACP handshake, or from a curated fallback list when the CLI doesn't expose a list.
+Detectados automaticamente do `PATH` no boot do daemon. Sem config necessária. O dispatch de streaming vive em [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts) (`AGENT_DEFS`); parsers por CLI vivem ao lado dele. Modelos são populados ou por probing `<bin> --list-models` / `<bin> models` / handshake ACP, ou de uma lista de fallback curada quando a CLI não expõe uma lista.
 
-| Agent | Bin | Stream format | Argv shape (composed prompt path) |
+| Agente | Bin | Formato de stream | Forma do argv (caminho de prompt composto) |
 |---|---|---|---|
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `claude` | `claude-stream-json` (typed events) | `claude -p <prompt> --output-format stream-json --verbose [--include-partial-messages] [--add-dir …] --permission-mode bypassPermissions` |
-| [Codex CLI](https://github.com/openai/codex) | `codex` | `json-event-stream` + `codex` parser | `codex exec --json --skip-git-repo-check --full-auto [-C cwd] [--model …] [-c model_reasoning_effort=…] -` (prompt on stdin) |
-| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | `json-event-stream` + `gemini` parser | `gemini --output-format stream-json --skip-trust --yolo [--model …] -` (prompt on stdin) |
-| [OpenCode](https://opencode.ai/) | `opencode` | `json-event-stream` + `opencode` parser | `opencode run --format json --dangerously-skip-permissions [--model …] -` (prompt on stdin) |
-| [Cursor Agent](https://www.cursor.com/cli) | `cursor-agent` | `json-event-stream` + `cursor-agent` parser | `cursor-agent --print --output-format stream-json --stream-partial-output --force --trust [--workspace cwd] [--model …] -` (prompt on stdin) |
-| [Qwen Code](https://github.com/QwenLM/qwen-code) | `qwen` | `plain` (raw stdout chunks) | `qwen --yolo [--model …] -` (prompt on stdin) |
-| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | `copilot` | `copilot-stream-json` (typed events) | `copilot -p <prompt> --allow-all-tools --output-format json [--model …] [--add-dir …]` |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | `claude` | `claude-stream-json` (eventos tipados) | `claude -p <prompt> --output-format stream-json --verbose [--include-partial-messages] [--add-dir …] --permission-mode bypassPermissions` |
+| [Codex CLI](https://github.com/openai/codex) | `codex` | `json-event-stream` + parser `codex` | `codex exec --json --skip-git-repo-check --full-auto [-C cwd] [--model …] [-c model_reasoning_effort=…] -` (prompt no stdin) |
+| [Gemini CLI](https://github.com/google-gemini/gemini-cli) | `gemini` | `json-event-stream` + parser `gemini` | `gemini --output-format stream-json --skip-trust --yolo [--model …] -` (prompt no stdin) |
+| [OpenCode](https://opencode.ai/) | `opencode` | `json-event-stream` + parser `opencode` | `opencode run --format json --dangerously-skip-permissions [--model …] -` (prompt no stdin) |
+| [Cursor Agent](https://www.cursor.com/cli) | `cursor-agent` | `json-event-stream` + parser `cursor-agent` | `cursor-agent --print --output-format stream-json --stream-partial-output --force --trust [--workspace cwd] [--model …] -` (prompt no stdin) |
+| [Qwen Code](https://github.com/QwenLM/qwen-code) | `qwen` | `plain` (chunks brutos do stdout) | `qwen --yolo [--model …] -` (prompt no stdin) |
+| [GitHub Copilot CLI](https://github.com/features/copilot/cli) | `copilot` | `copilot-stream-json` (eventos tipados) | `copilot -p <prompt> --allow-all-tools --output-format json [--model …] [--add-dir …]` |
 | [Hermes](https://github.com/eqlabs/hermes) | `hermes` | `acp-json-rpc` (Agent Client Protocol) | `hermes acp --accept-hooks` |
 | Kimi CLI | `kimi` | `acp-json-rpc` | `kimi acp` |
 | [Kiro CLI](https://kiro.dev) | `kiro-cli` | `acp-json-rpc` | `kiro-cli acp` |
-| [Pi](https://github.com/mariozechner/pi-ai) | `pi` | `pi-rpc` (stdio JSON-RPC) | `pi --mode rpc --no-session [--model …] [--thinking …]` (prompt sent as RPC `prompt` command) |
-| **OpenAI-compatible BYOK** | n/a | SSE pass-through | `POST /api/proxy/stream` → `<baseUrl>/v1/chat/completions`; SSRF-guarded against loopback / link-local / RFC1918 |
+| [Pi](https://github.com/mariozechner/pi-ai) | `pi` | `pi-rpc` (JSON-RPC stdio) | `pi --mode rpc --no-session [--model …] [--thinking …]` (prompt enviado como comando RPC `prompt`) |
+| **BYOK compatível com OpenAI** | n/a | Pass-through SSE | `POST /api/proxy/stream` → `<baseUrl>/v1/chat/completions`; SSRF-guarded contra loopback / link-local / RFC1918 |
 
-Adding a new CLI is one entry in [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts). Streaming format is one of `claude-stream-json`, `copilot-stream-json`, `json-event-stream` (with a per-CLI `eventParser`), `acp-json-rpc`, `pi-rpc`, or `plain`.
+Adicionar uma nova CLI é uma entrada em [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts). O formato de streaming é um de `claude-stream-json`, `copilot-stream-json`, `json-event-stream` (com um `eventParser` por CLI), `acp-json-rpc`, `pi-rpc`, ou `plain`.
 
-## References & lineage
+## Referências & linhagem
 
-Every external project this repo borrows from. Each link goes to the source so you can verify the provenance.
+Todo projeto externo do qual este repo toma emprestado. Cada link vai para a fonte para que você possa verificar a procedência.
 
-| Project | Role here |
+| Projeto | Papel aqui |
 |---|---|
-| [`Claude Design`][cd] | The closed-source product this repo is the open-source alternative to. |
-| [**`alchaincyf/huashu-design`**](https://github.com/alchaincyf/huashu-design) | The design-philosophy core. Junior-Designer workflow, the 5-step brand-asset protocol, anti-AI-slop checklist, 5-dimensional self-critique, and the "5 schools × 20 design philosophies" library behind our direction picker — all distilled into [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts) and [`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts). |
-| [**`op7418/guizang-ppt-skill`**][guizang] | Magazine-web-PPT skill bundled verbatim under [`skills/guizang-ppt/`](skills/guizang-ppt/) with original LICENSE preserved. Default for deck mode. P0/P1/P2 checklist culture borrowed for every other skill. |
-| [**`multica-ai/multica`**](https://github.com/multica-ai/multica) | The daemon + adapter architecture. PATH-scan agent detection, local daemon as the only privileged process, agent-as-teammate worldview. We adopt the model; we do not vendor the code. |
-| [**`OpenCoworkAI/open-codesign`**][ocod] | The first open-source Claude-Design alternative and our closest peer. UX patterns adopted: streaming-artifact loop, sandboxed-iframe preview (vendored React 18 + Babel), live agent panel (todos + tool calls + interruptible), five-format export list (HTML/PDF/PPTX/ZIP/Markdown), local-first storage hub, `SKILL.md` taste-injection. UX patterns on our roadmap: comment-mode surgical edits, AI-emitted tweaks panel. **We deliberately do not vendor [`pi-ai`][piai]** — open-codesign bundles it as the agent runtime; we delegate to whichever CLI the user already has. |
-| [`VoltAgent/awesome-claude-design`][acd] / [`awesome-design-md`][acd2] | Source of the 9-section `DESIGN.md` schema and 70 product systems imported via [`scripts/sync-design-systems.ts`](scripts/sync-design-systems.ts). |
-| [`bergside/awesome-design-skills`][ads] | Source of 57 design skills added directly as normalized `DESIGN.md` files under `design-systems/`. |
-| [`farion1231/cc-switch`](https://github.com/farion1231/cc-switch) | Inspiration for symlink-based skill distribution across multiple agent CLIs. |
-| [Claude Code skills][skill] | The `SKILL.md` convention adopted verbatim — any Claude Code skill drops into `skills/` and is picked up by the daemon. |
+| [`Claude Design`][cd] | O produto de código fechado para o qual este repo é a alternativa open-source. |
+| [**`alchaincyf/huashu-design`**](https://github.com/alchaincyf/huashu-design) | O núcleo da filosofia de design. Workflow Junior-Designer, o protocolo de 5 passos para ativos de marca, checklist anti-AI-slop, auto-crítica de 5 dimensões e a biblioteca "5 escolas × 20 filosofias de design" por trás do nosso seletor de direções — tudo destilado em [`apps/web/src/prompts/discovery.ts`](apps/web/src/prompts/discovery.ts) e [`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts). |
+| [**`op7418/guizang-ppt-skill`**][guizang] | Skill magazine-web-PPT empacotada verbatim em [`skills/guizang-ppt/`](skills/guizang-ppt/) com a LICENSE original preservada. Default para modo deck. Cultura de checklist P0/P1/P2 emprestada para toda outra skill. |
+| [**`multica-ai/multica`**](https://github.com/multica-ai/multica) | A arquitetura daemon + adapter. Detecção de agentes via PATH-scan, daemon local como o único processo privilegiado, visão de mundo agente-como-companheiro-de-equipe. Adotamos o modelo; não vendorizamos o código. |
+| [**`OpenCoworkAI/open-codesign`**][ocod] | A primeira alternativa open-source ao Claude Design e nosso par mais próximo. Padrões de UX adotados: loop de streaming-artifact, preview iframe sandboxed (React 18 + Babel vendorizados), painel de agente ao vivo (todos + chamadas de tool + interrompível), lista de export em cinco formatos (HTML/PDF/PPTX/ZIP/Markdown), hub de storage local-first, taste-injection via `SKILL.md`. Padrões de UX no nosso roadmap: edições cirúrgicas em modo comentário, painel de tweaks emitidos pela IA. **Deliberadamente não vendorizamos [`pi-ai`][piai]** — open-codesign o empacota como o runtime do agente; nós delegamos para qualquer CLI que o usuário já tenha. |
+| [`VoltAgent/awesome-claude-design`][acd] / [`awesome-design-md`][acd2] | Fonte do schema `DESIGN.md` de 9 seções e dos 70 sistemas de produto importados via [`scripts/sync-design-systems.ts`](scripts/sync-design-systems.ts). |
+| [`bergside/awesome-design-skills`][ads] | Fonte das 57 design skills adicionadas diretamente como arquivos `DESIGN.md` normalizados em `design-systems/`. |
+| [`farion1231/cc-switch`](https://github.com/farion1231/cc-switch) | Inspiração para distribuição de skills baseada em symlinks através de várias CLIs de agente. |
+| [Skills do Claude Code][skill] | A convenção `SKILL.md` adotada verbatim — qualquer skill do Claude Code entra em `skills/` e é pega pelo daemon. |
 
-Long-form provenance write-up — what we take from each, what we deliberately don't — lives at [`docs/references.md`](docs/references.md).
+Texto de procedência long-form — o que tomamos de cada um, o que deliberadamente não tomamos — vive em [`docs/references.md`](docs/references.md).
 
 ## Roadmap
 
-- [x] Daemon + agent detection (10 CLI adapters) + skill registry + design-system catalog
-- [x] Web app + chat + question form + 5-direction picker + todo progress + sandboxed preview
-- [x] 31 skills + 72 design systems + 5 visual directions + 5 device frames
-- [x] SQLite-backed projects · conversations · messages · tabs · templates
-- [x] OpenAI-compatible BYOK proxy (`/api/proxy/stream`) with SSRF guard
-- [x] Claude Design ZIP import (`/api/import/claude-design`)
-- [x] Sidecar protocol + Electron desktop with IPC automation (STATUS / EVAL / SCREENSHOT / CONSOLE / CLICK / SHUTDOWN)
-- [x] Artifact lint API + 5-dim self-critique pre-emit gate
-- [ ] Comment-mode surgical edits (click element → instruction → patch) — pattern from [`open-codesign`][ocod]
-- [ ] AI-emitted tweaks panel UX — building block ([`tweaks` skill](skills/tweaks/)) ships; chat-integrated panel still pending
-- [ ] Vercel + tunnel deployment recipe (Topology B)
-- [ ] One-command `npx od init` to scaffold a project with `DESIGN.md`
-- [ ] Skill marketplace (`od skills install <github-repo>`) and `od skill add | list | remove | test` CLI surface (drafted in [`docs/skills-protocol.md`](docs/skills-protocol.md), implementation pending)
-- [ ] Packaged Electron build out of `apps/packaged/`
+- [x] Daemon + detecção de agente (10 adapters de CLI) + registro de skills + catálogo de design system
+- [x] App web + chat + formulário de perguntas + seletor de 5 direções + progresso de todos + preview sandboxed
+- [x] 31 skills + 72 design systems + 5 direções visuais + 5 frames de dispositivo
+- [x] Projetos backed por SQLite · conversas · mensagens · abas · templates
+- [x] Proxy BYOK compatível com OpenAI (`/api/proxy/stream`) com guard SSRF
+- [x] Importação de ZIP do Claude Design (`/api/import/claude-design`)
+- [x] Protocolo de sidecar + desktop Electron com automação IPC (STATUS / EVAL / SCREENSHOT / CONSOLE / CLICK / SHUTDOWN)
+- [x] API de lint de artefatos + gate pre-emit de auto-crítica 5-dim
+- [ ] Edições cirúrgicas em modo comentário (clique no elemento → instrução → patch) — padrão de [`open-codesign`][ocod]
+- [ ] UX do painel de tweaks emitidos pela IA — building block ([skill `tweaks`](skills/tweaks/)) é enviado; painel integrado ao chat ainda pendente
+- [ ] Receita de deployment Vercel + tunnel (Topologia B)
+- [ ] `npx od init` em um comando para esqueletar um projeto com `DESIGN.md`
+- [ ] Marketplace de skills (`od skills install <github-repo>`) e superfície CLI `od skill add | list | remove | test` (rascunhada em [`docs/skills-protocol.md`](docs/skills-protocol.md), implementação pendente)
+- [ ] Build Electron empacotado a partir de `apps/packaged/`
 
-Phased delivery → [`docs/roadmap.md`](docs/roadmap.md).
+Entrega em fases → [`docs/roadmap.md`](docs/roadmap.md).
 
 ## Status
 
-This is an early implementation — the closed loop (detect → pick skill + design system → chat → parse `<artifact>` → preview → save) runs end-to-end. The prompt stack and skill library are where most of the value lives, and they're stable. The component-level UI is shipping daily.
+Esta é uma implementação inicial — o loop fechado (detectar → escolher skill + design system → chat → parsear `<artifact>` → preview → salvar) roda end-to-end. A stack de prompts e a biblioteca de skills é onde a maior parte do valor vive, e elas são estáveis. A UI a nível de componente é enviada diariamente.
 
-## Star us
+## Dê uma estrela
 
 <p align="center">
-  <a href="https://github.com/nexu-io/open-design"><img src="docs/assets/star-us.png" alt="Star Open Design on GitHub — github.com/nexu-io/open-design" width="100%" /></a>
+  <a href="https://github.com/nexu-io/open-design"><img src="docs/assets/star-us.png" alt="Star Open Design no GitHub — github.com/nexu-io/open-design" width="100%" /></a>
 </p>
 
-If this saved you thirty minutes — give it a ★. Stars don't pay rent, but they tell the next designer, agent, and contributor that this experiment is worth their attention. One click, three seconds, real signal: [github.com/nexu-io/open-design](https://github.com/nexu-io/open-design).
+Se isto te economizou trinta minutos — dê uma ★. Estrelas não pagam aluguel, mas dizem para o próximo designer, agente e contribuidor que este experimento merece sua atenção. Um clique, três segundos, sinal real: [github.com/nexu-io/open-design](https://github.com/nexu-io/open-design).
 
-## Contributing
+## Contribuindo
 
-Issues, PRs, new skills, and new design systems are all welcome. The highest-leverage contributions are usually one folder, one Markdown file, or one PR-sized adapter:
+Issues, PRs, novas skills e novos design systems são todos bem-vindos. As contribuições de maior alavancagem geralmente são uma pasta, um arquivo Markdown ou um adapter do tamanho de um PR:
 
-- **Add a skill** — drop a folder into [`skills/`](skills/) following the [`SKILL.md`][skill] convention.
-- **Add a design system** — drop a `DESIGN.md` into [`design-systems/<brand>/`](design-systems/) using the 9-section schema.
-- **Wire up a new coding-agent CLI** — one entry in [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts).
+- **Adicione uma skill** — solte uma pasta em [`skills/`](skills/) seguindo a convenção [`SKILL.md`][skill].
+- **Adicione um design system** — solte um `DESIGN.md` em [`design-systems/<brand>/`](design-systems/) usando o schema de 9 seções.
+- **Conecte uma nova CLI de agente de codificação** — uma entrada em [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts).
 
-Full walkthrough, bar-for-merging, code style, and what we don't accept → [`CONTRIBUTING.md`](CONTRIBUTING.md) ([Deutsch](CONTRIBUTING.de.md), [简体中文](CONTRIBUTING.zh-CN.md)).
+Walkthrough completo, barra para merge, estilo de código e o que não aceitamos → [`CONTRIBUTING.md`](CONTRIBUTING.md) ([Deutsch](CONTRIBUTING.de.md), [简体中文](CONTRIBUTING.zh-CN.md)).
 
-## Contributors
+## Contribuidores
 
-Thanks to everyone who has helped move Open Design forward — through code, docs, feedback, new skills, new design systems, or even a sharp issue. Every real contribution counts, and the wall below is the easiest way to say so out loud.
+Obrigado a todos que ajudaram a mover Open Design adiante — através de código, docs, feedback, novas skills, novos design systems, ou até uma issue afiada. Toda contribuição real conta, e o mural abaixo é a forma mais fácil de dizer isso em alto e bom som.
 
 <a href="https://github.com/nexu-io/open-design/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nexu-io/open-design&cache_bust=2026-04-30" alt="Open Design contributors" />
+  <img src="https://contrib.rocks/image?repo=nexu-io/open-design&cache_bust=2026-04-30" alt="Contribuidores Open Design" />
 </a>
 
-If you've shipped your first PR — welcome. The [`good-first-issue`](https://github.com/nexu-io/open-design/labels/good-first-issue) label is the entry point.
+Se você enviou seu primeiro PR — bem-vindo. A label [`good-first-issue`](https://github.com/nexu-io/open-design/labels/good-first-issue) é o ponto de entrada.
 
-## Repository activity
+## Atividade do repositório
 
 <picture>
-  <img alt="Open Design — repository metrics" src="docs/assets/github-metrics.svg" />
+  <img alt="Open Design — métricas do repositório" src="docs/assets/github-metrics.svg" />
 </picture>
 
-The SVG above is regenerated daily by [`.github/workflows/metrics.yml`](.github/workflows/metrics.yml) using [`lowlighter/metrics`](https://github.com/lowlighter/metrics). Trigger a manual refresh from the **Actions** tab if you want it sooner; for richer plugins (traffic, follow-up time), add a `METRICS_TOKEN` repository secret with a fine-grained PAT.
+O SVG acima é regenerado diariamente por [`.github/workflows/metrics.yml`](.github/workflows/metrics.yml) usando [`lowlighter/metrics`](https://github.com/lowlighter/metrics). Acione um refresh manual da aba **Actions** se quiser mais cedo; para plugins mais ricos (tráfego, follow-up time), adicione um secret de repositório `METRICS_TOKEN` com um PAT fine-grained.
 
-## Star History
+## Histórico de Stars
 
 <a href="https://star-history.com/#nexu-io/open-design&Date">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&theme=dark&cache_bust=2026-04-30" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&cache_bust=2026-04-30" />
-    <img alt="Open Design star history" src="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&cache_bust=2026-04-30" />
+    <img alt="Histórico de stars do Open Design" src="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&cache_bust=2026-04-30" />
   </picture>
 </a>
 
-If the curve bends up, that's the signal we look for. ★ this repo to push it.
+Se a curva sobe, esse é o sinal que procuramos. Dê ★ neste repo para empurrá-la.
 
-## License
+## Licença
 
-Apache-2.0. The bundled `skills/guizang-ppt/` retains its original [LICENSE](skills/guizang-ppt/LICENSE) (MIT) and authorship attribution to [op7418](https://github.com/op7418).
+Apache-2.0. O `skills/guizang-ppt/` empacotado retém sua [LICENSE](skills/guizang-ppt/LICENSE) original (MIT) e atribuição de autoria a [op7418](https://github.com/op7418).
