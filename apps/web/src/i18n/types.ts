@@ -115,6 +115,16 @@ export interface Dict {
   'settings.mediaProviderClear': string;
   'settings.mediaProviderPlaceholder': string;
   'settings.mediaProviderBaseUrlPlaceholder': string;
+  'settings.about': string;
+  'settings.aboutHint': string;
+  'settings.appVersion': string;
+  'settings.appChannel': string;
+  'settings.appRuntime': string;
+  'settings.appPlatform': string;
+  'settings.appArchitecture': string;
+  'settings.runtimePackaged': string;
+  'settings.runtimeDevelopment': string;
+  'settings.versionUnavailable': string;
 
   // Entry view / tabs
   'entry.tabDesigns': string;

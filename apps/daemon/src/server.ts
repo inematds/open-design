@@ -52,6 +52,7 @@ import {
   writeProjectFile,
 } from './projects.js';
 import { validateArtifactManifestInput } from './artifact-manifest.js';
+import { readCurrentAppVersionInfo } from './app-version.js';
 import {
   deleteConversation,
   deleteProject as dbDeleteProject,
@@ -481,8 +482,14 @@ export async function startServer({ port = 7456, returnServer = false } = {}) {
     app.use(express.static(STATIC_DIR));
   }
 
-  app.get('/api/health', (_req, res) => {
-    res.json({ ok: true, version: '0.1.0' });
+  app.get('/api/health', async (_req, res) => {
+    const versionInfo = await readCurrentAppVersionInfo();
+    res.json({ ok: true, version: versionInfo.version });
+  });
+
+  app.get('/api/version', async (_req, res) => {
+    const version = await readCurrentAppVersionInfo();
+    res.json({ version });
   });
 
   // ---- Projects (DB-backed) -------------------------------------------------
